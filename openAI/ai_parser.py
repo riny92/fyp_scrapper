@@ -1,10 +1,8 @@
-#-------
-
 import sys
 import time
-from openai import OpenAI
 import json
 import re
+from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,62 +23,119 @@ def identify_sections(content):
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a skilled assistant trained to identify and list section titles in academic articles."},
-            {"role": "user", "content": f"Identify the section titles in this academic article excerpt: {content}. Your output should be ONLY the titles, nothing else"}
+            {"role": "user", "content": f"Identify the section titles in this academic article excerpt: {content}. Your output should be ONLY the titles, one per line, nothing else."}
         ]
     )
     return response.choices[0].message.content.strip()
 
 #split the paper into sections using the section titles found with the 1st prompt
 def split_content(content, sections):
-    pattern = '|'.join([re.escape(section) for section in sections.split('\n') if section.strip()]) #regex pattern to match the section titles found
-    return re.split(pattern, content)   #split based on section titles
+    print("\nSubchapter Titles Identified")
+
+    section_titles = [title.strip() for title in sections.split("\n") if title.strip()]
+
+    #handle cases where no valid sections come from the ai prompt
+    if not section_titles:
+        print("No valid section titles found -treating the whole text as a single section")
+        return [("Full Document", content)]
+
+    pattern = '|'.join([re.escape(title) for title in section_titles])
+    split_sections = re.split(pattern, content)
+
+    return list(zip(section_titles, split_sections[1:]))  # Pair section titles with their content
+
+#split the blocks further into paragraphs - easier on the LLM
+def split_into_paragraphs(text, max_paragraph_length=500):
+    paragraphs = [p.strip() for p in re.split(r'\n+', text.strip()) if p.strip()]
+    combined_paragraphs = []
+    buffer = ""
+
+    for para in paragraphs:
+        if len(buffer) + len(para) < max_paragraph_length:
+            buffer += " " + para
+        else:
+            combined_paragraphs.append(buffer.strip())
+            buffer = para
+
+    if buffer:  
+        combined_paragraphs.append(buffer.strip())
+
+    return combined_paragraphs
 
 #create 'ai versions' of each content block after the splitting happens
 #prompt the LLM to try mimic the human writing and keep the structure as best as possible
-# (maybe adjust the prompt later for better results - tbd)
-def generate_ai_versions(blocks):
+def generate_ai_versions(split_sections, current_paper, total_papers):
     ai_versions = []
-    total = len(blocks)
-    for i, block in enumerate(blocks):
-        if block.strip():
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",    #using 4o-mini for testing purposes, the real thing will use 4o probably
-                messages=[
-                    {"role": "system", "content": "You are a skilled assistant trained to rewrite academic text to make it indistinguishable from human-written text."},
-                    {"role": "user", "content": f"Rewrite this text to best mimic human writing, while keeping the same structure and word count of the text as best as possible: {block.strip()}"}
-                ]
-            )
-            ai_versions.append(response.choices[0].message.content.strip() + "\n")
-        update_progress((i + 1) / total)
+    
+    for section_title, section_text in split_sections:
+
+        paragraphs = split_into_paragraphs(section_text)
+        ai_paragraphs = []
+        
+        for para in paragraphs:
+            if para.strip():
+                response = client.chat.completions.create(
+                    model="gpt-4o",
+                    max_tokens=16300,  #max possible value
+                    messages=[
+                        {"role": "system", "content": "You are a skilled assistant trained to rewrite academic text to make it indistinguishable from human-written text."},
+                        {"role": "user", "content": f"""
+                        Rewrite the following text in a way that best mimics human writing.
+
+                        - **DO NOT summarize or shorten.**  
+                        - **Maintain the same word count or slightly expand the text.**  
+                        - **Ensure the output has AT LEAST as many words as the input.**  
+                        - **Do not remove key details or simplify concepts.**  
+                        - **Maintain paragraph structures and overall format.**  
+
+                        Here is the text to rewrite:
+                        {para.strip()}
+                        """}
+                    ]
+                )
+                ai_paragraphs.append(response.choices[0].message.content.strip())
+
+        #combine AI paragraphs for the section
+        ai_versions.append(f"\n### {section_title}\n" + "\n".join(ai_paragraphs))
+
+        #update progress with the loading bar
+        update_progress(len(ai_versions) / len(split_sections), current_paper, total_papers)
+
     return ai_versions
 
-#an attempt to create a loading bar that shows the processing status for each paper as it goes through the API
-#works, but it refreshes at weird times
-#(needs improvement - maybe add a index for each bar to know paper number)
-def update_progress(progress):
+#pogress bar for tracking the status of each paper i out of n total papers
+def update_progress(progress, current_paper, total_papers):
     bar_length = 40
-    status = ""
-    if progress >= 1:
-        progress = 1
-        status = "Done...\r\n"
+    status = "Done...\r\n" if progress >= 1 else ""
     block = int(round(bar_length * progress))
-    text = "\rProcessing: [{0}] {1}% {2}".format("#" * block + "-" * (bar_length - block), int(progress * 100), status)
+    text = f"\rProcessing Paper {current_paper}/{total_papers}: [{'#' * block + '-' * (bar_length - block)}] {int(progress * 100)}% {status}"
     sys.stdout.write(text)
     sys.stdout.flush()
+
+#write 'ai versions' after each end of process to prevent data loss if the script crashes
+def save_article_progress(filepath, ai_articles):
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(ai_articles, f, indent=4)
 
 #load article from data folder
 #needs to be changed from hardcoding
 articles = load_article_data('../data/arxive_data.json')
 ai_articles = []
+total_papers = len(articles)
 
 #loop through each article and process it
-for article_data in articles:
+for index, article_data in enumerate(articles, start=1):  
     article_content = article_data['contents']
+    
+    #identify sections and split content
     sections = identify_sections(article_content)
-    blocks = split_content(article_content, sections)
-    ai_versions = generate_ai_versions(blocks)
-    ai_full_text = "".join(ai_versions)
+    split_sections = split_content(article_content, sections)
+    
+    #get 'ai version' of each
+    ai_versions = generate_ai_versions(split_sections, index, total_papers)  
+    ai_full_text = "\n\n".join(ai_versions).replace("\n", " ")  #handle whitespace in json file
 
+    #strcture the json with ai content
     ai_article = {
         "category": article_data["category"],
         "article_id": article_data["article_id"],
@@ -90,11 +145,10 @@ for article_data in articles:
         "label": "AI",
         "contents": ai_full_text
     }
-    #join all ai rewritten sections into one full text
+    
     ai_articles.append(ai_article)
+    
+    #save most recent progress after each paper is processed
+    save_article_progress('../data/arxive_data_ai.json', ai_articles)
 
-#save 'ai versions' into a json - path is hard coded - needs to be changed
-with open('../test_data/ai_paper.json', 'w') as f:
-    json.dump(ai_articles, f, indent=4)
-
-print("\nAI versions saved to test_data/ai_paper.json.")
+print("\nAI versions saved to data/arxive_data_ai.json.")

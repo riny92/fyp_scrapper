@@ -112,14 +112,14 @@ def scrape_data(categories, max_results_per_category):
     return all_data
 
 #arxive categories and the number of results to be scrapped (hardcoded for now - to be changable by user via terminal prompt later)
-categories = {'stat': 6, 'cs': 5, 'math': 4}
+categories = {'q-bio': 5, 'cs': 5, 'econ': 5, 'q-fin':5}
 
 data = scrape_data(categories, categories)
 print('--- ARXIV Scraping Done ---')
 
 #once all data is scrapped, save it to a json file
 
-print('>> Saving data to arxive_data_test.json <<')
+print('>> Saving data to arxive_data.json <<')
 with open('../data/arxive_data.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=4, ensure_ascii=False)
 print('>> Data Saved Successfully <<')

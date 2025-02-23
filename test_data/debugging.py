@@ -6,76 +6,94 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def load_article_data(filepath):
-    with open(filepath, 'r') as file:
-        data = json.load(file)
-    return data  
-
 client = OpenAI()
+
+def load_articles(filepath):
+    with open(filepath, 'r', encoding='utf-8') as file:
+        return json.load(file)
+
+def save_debug_output(filepath, data):
+    with open(filepath, 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
 
 def identify_sections(content):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": "You are a skilled assistant trained to identify and list section titles in academic articles."},
-            {"role": "user", "content": f"Identify the section titles in this academic article excerpt: {content}. Your output should be ONLY the titles, one per line, nothing else."}
+            {
+            "role": "system",
+            "content": "You are an expert in extracting section titles from academic papers. "
+                        "Your task is to accurately identify and list section titles without hallucinating or "
+                        "misplacing sections. Maintain the correct order and avoid creating section breaks in the middle of a paragraph."
+            },
+            {"role": "user", 
+            "content": f"""Extract section titles from the following academic paper excerpt:
+            {content}
+
+            **Guidelines:**
+            - **Return ONLY section titles that actually appear in the text.** Do NOT create new section titles.
+            - **Maintain the order of sections as they appear.**
+            - **Do NOT split paragraphs incorrectly.** If a section title is ambiguous or unclear, ignore it.
+            - **Ensure that 'References' or similar sections are separate and not merged with other content.**
+            - If no clear sections exist, return `"Full Document"`."""}
         ]
     )
-    return response.choices[0].message.content.strip()
 
-def split_content(content, sections):
-    print("\n--- Subchapter Titles---")
-    print(sections)  
+    section_list = response.choices[0].message.content.strip()
+    return [title.strip() for title in section_list.split("\n")]
 
-    section_titles = [title.strip() for title in sections.split("\n") if title.strip()]
+def format_regex_pattern(section_titles):
+    formatted_titles = [re.escape(title).replace(r"\ ", r"\s*") for title in section_titles]
+    regex_pattern = "|".join(formatted_titles)
+    return regex_pattern
 
-    if not section_titles:
-        print("No valid section titles found -treating the whole text as a single section")
-        return [content]
+def split_content(content, section_titles):
+    if not section_titles or section_titles == ["Full Document"]:
+        print("No section titles detected. Treating as full document.")
+        return [("Full Document", content)]
 
-    pattern = '|'.join([re.escape(title) for title in section_titles])
-    split_sections = re.split(pattern, content)
+    print("\nIdentified Sections:")
+    for section in section_titles:
+        print(f" - {section}")
 
-    return list(zip(section_titles, split_sections[1:]))  
+    regex_pattern = format_regex_pattern(section_titles)
+    print(f"\nRegex Pattern Used: {regex_pattern}")
 
-def split_into_paragraphs(text, max_paragraph_length=500):
-    paragraphs = re.split(r'\n+', text.strip()) 
-    combined_paragraphs = []
-    buffer = ""
+    split_sections = re.split(f"({regex_pattern})", content)
 
-    for para in paragraphs:
-        if len(buffer) + len(para) < max_paragraph_length:
-            buffer += " " + para
-        else:
-            combined_paragraphs.append(buffer.strip())
-            buffer = para
+    structured_sections = []
+    for i in range(1, len(split_sections), 2):
+        title = split_sections[i].strip()
+        text = split_sections[i + 1].strip() if i + 1 < len(split_sections) else ""
+        structured_sections.append((title, f"{title} {text}"))
 
-    if buffer:  
-        combined_paragraphs.append(buffer.strip())
+    return structured_sections
 
-    return combined_paragraphs
+articles = load_articles('../data/broken.json')
+debug_output = []
 
-def write_debug_output(filename, articles):
-    with open(filename, 'w', encoding='utf-8') as f:
-        for index, article_data in enumerate(articles, start=1):
-            article_content = article_data['contents']
-            sections = identify_sections(article_content)
-            split_sections = split_content(article_content, sections)
+for article_index, article_data in enumerate(articles, start=1):
+    print(f"\nProcessing Paper {article_index}/{len(articles)}")
 
-            f.write(f"\n--- Paper {index}: {article_data['name of paper']} ---\n")
-            f.write("=" * 80 + "\n")
+    article_content = article_data['contents']
+    section_titles = identify_sections(article_content)
 
-            for section_title, section_text in split_sections:
-                f.write(f"\n### Section: {section_title}\n")
-                f.write("\n[Full Section Below]\n")
+    split_sections = split_content(article_content, section_titles)
 
-                paragraphs = split_into_paragraphs(section_text)
-                for i, para in enumerate(paragraphs, start=1):
-                    f.write(f"\n    [Paragraph {i}]: {para}\n")
+    print("\nsplit Sections Debugging:")
+    for idx, (title, content) in enumerate(split_sections):
+        preview = content[:200].replace("\n", " ") 
+        print(f"Section {idx}: {title}")
+        print(f"Content Preview: {preview}...\n")
 
-            f.write("\n" + "=" * 80 + "\n")
+    debug_output.append({
+        "article_id": article_data["article_id"],
+        "name": article_data["name of paper"],
+        "identified_sections": section_titles,
+        "regex_pattern": format_regex_pattern(section_titles),
+        "split_sections": [{"title": title, "content": content} for title, content in split_sections]
+    })
 
-articles = load_article_data('../data/temp.json')
-write_debug_output('../data/debug_output.txt', articles)
+save_debug_output('../test_data/debug.json', debug_output)
 
-print("\ndebugging over")
+print("debugging output saved to /test_data/debug.json")

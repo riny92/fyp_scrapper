@@ -140,23 +140,55 @@ def split_by_topic(text, min_chunk_size=50, sentence_skip=1):
 
 #create 'ai versions' of each content block after the splitting happens
 #prompt the LLM to try mimic the human writing and keep the structure as best as possible
+# def generate_ai_versions(human_text):
+
+#     response = client.chat.completions.create(
+#         model="gpt-4o",
+#         max_tokens=16300,
+#         temperature=0.7,  # Increase randomness
+#         top_p=0.85,  # Reduce high-probability word choices
+#         messages=[
+#             {"role": "system", "content": "You are a skilled assistant trained to rewrite academic text to make it indistinguishable from human-written text."},
+#             {"role": "user", "content": f"""
+#             Rewrite the following text in a way that best mimics human writing.
+#             - **DO NOT summarize or shorten.**  
+#             - **Maintain the same word count or slightly expand the text.**  
+#             - **Ensure the output has AT LEAST as many words as the input.**  
+#             - **Do not remove key details or simplify concepts.**  
+#             - **Maintain paragraph structures and overall format.**  
+#             Here is the text to rewrite:
+
+#             Text to rewrite:
+#             {human_text.strip()}
+#             """}
+#         ]
+#     )
+#     return clean_ai_text(response.choices[0].message.content.strip())
+
+
 def generate_ai_versions(human_text):
 
     response = client.chat.completions.create(
         model="gpt-4o",
         max_tokens=16300,
+        temperature=0.9,  # Slightly increase randomness for more natural variation
+        top_p=0.9,  # Keep diversity but within logical bounds
         messages=[
-            {"role": "system", "content": "You are a skilled assistant trained to rewrite academic text to make it indistinguishable from human-written text."},
+            {"role": "system", "content": "You are a skilled academic writer. Your task is to rewrite text so that it mimics natural human writing perfectly, making it indistinguishable from a human-written version."},
             {"role": "user", "content": f"""
-            Rewrite the following text in a way that best mimics human writing.
-            - **DO NOT summarize or shorten.**  
-            - **Maintain the same word count or slightly expand the text.**  
-            - **Ensure the output has AT LEAST as many words as the input.**  
-            - **Do not remove key details or simplify concepts.**  
-            - **Maintain paragraph structures and overall format.**  
-            Here is the text to rewrite:
+            Rewrite the following text so that it appears authentically human-written, making subtle but meaningful changes in phrasing, structure, and word choice. 
 
-            Text to rewrite:
+            ### Instructions:
+            - **Do NOT simply rephrase word-for-word.** Introduce **natural variations** that a human would.
+            - **Maintain the original meaning but reword naturally.**
+            - **Vary sentence structures slightly** to reflect how humans naturally write.
+            - **Use a mix of shorter and longer sentences** to add rhythm to the text.
+            - **Use varied vocabulary and synonyms where appropriate.**
+            - **Occasionally restructure paragraphs for better flow** (if needed).
+            - **Do NOT remove or simplify key concepts.**
+            - **Maintain the same word count or slightly expand it** to sound natural.
+
+            ### Text to rewrite:
             {human_text.strip()}
             """}
         ]
@@ -182,7 +214,7 @@ def save_article_progress(filepath, ai_articles):
         json.dump(ai_articles, f, indent=4, ensure_ascii=False)
 
 #load article from data folder
-articles = load_article_data('../data/demo.json')
+articles = load_article_data('../data/evaluation.json')
 ai_articles = []
 total_papers = len(articles)
 
@@ -227,7 +259,7 @@ for paper_index, article_data in enumerate(articles, start=1):
     }
     
     ai_articles.append(ai_article)
-    save_article_progress('../data/demo_ai_transformers.json', ai_articles)
+    save_article_progress('../data/evaluation_ai.json', ai_articles)
     time.sleep(2)  #just in case:)
 
-print("\nAI versions saved to /data/demo_ai_transformers.json.")
+print("\nAI versions saved to /data/evaluation_ai.json.")

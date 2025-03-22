@@ -1,0 +1,910 @@
+{
+    "2503.07194": [
+        {
+            "section": "Abstract",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "It is shown that any localisation of triangulated categories induces(up to an equivalence) a localisation of abelian categories when onepasses to their abelianisations. From this one obtains for anyenlargement of Grothendieck universes an example of an abeliancategory and a Serre subcategory within the smaller universe suchthat the corresponding quotient does only exist within the biggeruniverse. The second part of this note provides an analogue for theabelian hull of an arbitrary category."
+            ],
+            "ai": [
+                "Research has demonstrated that whenever one localizes triangulated categories, it results in-when viewed through the lens of equivalence-a corresponding localization of abelian categories upon transitioning to their abelianizations. Through this framework, one can derive, for any expansion involving Grothendieck universes, an illustrative instance of an abelian category alongside a Serre subcategory residing within the confines of the smaller universe. This scenario is such that the corresponding quotient can only manifest within the context of the larger universe. The latter portion of this note extends this analogy to encompass the abelian hull associated with any arbitrary category."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "Localisations of categories naturally arise in the study of abelianand triangulated categories [4, 8], but the constructionof a localisation raises some set-theoretic issues. More specifically,given a category C and a class of morphisms Σ in C , there isa universal functor that inverts all morphisms in Σ ; see [5]. For the localised category itis a priori not clear that for any given pair of objects the morphismsbetween them form a set (and not a proper class). Fortunately thereare explicit criteria in the literature which ensure that there is noreason to worry, but often this issue is ignored."
+            ],
+            "ai": [
+                "Localizations of categories arise quite naturally when delving into the realm of abelian and triangulated categories, as highlighted in sources [4, 8]. However, crafting a localization involves tackling some intricate set-theoretic challenges. To go into detail, if we have a category C along with a collection of morphisms Σ within C, there exists a universal functor that serves to invert all the morphisms contained in Σ; refer to [5] for a deeper understanding. Initially, in the localized category, it is not evidently apparent that, for any chosen pair of objects, the morphisms between these objects constitute a set rather than a proper class. Thankfully, the literature offers concrete criteria that assure us there is no need for concern in this matter, though this potential issue tends to be frequently overlooked."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "For an abelian category A and a Serre subcategory C the quotientcategory quotientcategory is by definition the localisation withrespect to the class Σ of morphisms with kernel and cokernel bothin C ; see [4, III.1]. In this note we present examplesof such a quotient such that for some pair of objects the morphismsbetween them do not form a set. For a concise exposition it isconvenient to use the setting of Grothendieck universes."
+            ],
+            "ai": [
+                "Consider an Abelian category A alongside a Serre subcategory C. The quotient category, by its very definition, is derived through the localization process with respect to the collection Σ of morphisms. These are specifically those transformations whose kernels and cokernels reside wholly within C, as elaborated in [4, III.1]. Within this short discussion, we delve into illustrative cases of this quotient infrastructure where, intriguingly, the morphisms between certain pairs of objects do not consolidate into a proper set. To articulate this phenomenon effectively, we find it advantageous to operate within the conceptual framework of Grothendieck universes."
+            ]
+        },
+        {
+            "section": "Abelian quotients",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "We fix a Grothendieck universe U which is sufficiently big tocontain the set of integers; see [4, I.1]. If not mentionedotherwise, we assume throughout that all categories are U-categories U -categories, which means that for any pair of objects the set belongs to U . Given a pair ofcategories we write for the category of functors , with given by the set of naturaltransformations for any pair of functors . This need notbe a U -category."
+            ],
+            "ai": [
+                "We select a sufficiently large Grothendieck universe U that encompasses the set of integers, as referenced in [4, I.1]. Unless otherwise specified, it is assumed henceforth that all categories are U-categories. This implies that for any two objects within a category, the set of morphisms between them resides within U. When dealing with a pair of categories, we denote the category of functors using the notation that accommodates the set of natural transformations for every pair of functors involved. It is important to note that this particular construct does not necessarily form a U-category."
+            ]
+        },
+        {
+            "section": "Abelian quotients",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "For a pair of abelian categories let denotethe full subcategory of consisting of the exact functors . Given a Serre subcategory , the quotientfunctor can be characterised as follows."
+            ],
+            "ai": [
+                "If we consider two abelian categories, let’s denote by the full subcategory that includes all the exact functors. When considering a Serre subcategory, the quotient functor can be uniquely described in the following manner."
+            ]
+        },
+        {
+            "section": "The abelianisation of a triangulated category",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "Let T be a triangulated category. Given any abelian category A we write for the full subcategory of consisting of the cohomological functors . Recall from[8, II.3] that the abelianisation abelianisation is a fullyfaithful cohomological functor that induces for any abelian category A an equivalence"
+            ],
+            "ai": [
+                "Consider T as a triangulated category. When we have an abelian category A, we denote a specific full subcategory that comprises the cohomological functors. As referenced in [8, II.3], it is important to remember that the process of abelianisation results in a fully faithful cohomological functor. This functor plays a crucial role by establishing, for any abelian category A, an equivalence."
+            ]
+        },
+        {
+            "section": "The abelianisation of a triangulated category",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "For a triangulated subcategory we write for the corresponding quotient category quotient category[8, II.2]. The quotient functor has the following property."
+            ],
+            "ai": [
+                "In the context of a triangulated subcategory, we denote the associated quotient category by using the notation quotient category[8, II.2]. The defining characteristic of the quotient functor exhibits the following attribute."
+            ]
+        },
+        {
+            "section": "The abelianisation of a triangulated category",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "We obtain a commutative diagram T and claim that the bottom horizontal functor is equivalent to a quotientfunctor."
+            ],
+            "ai": [
+                "We derive a commutative diagram notation denoted as T, with the assertion that the functor positioned along the bottom horizontal axis can be equated to a quotient functor."
+            ]
+        },
+        {
+            "section": "The abelianisation of a triangulated category",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "Let denote the Serre subcategory of that is generated by the image of the embedding ."
+            ],
+            "ai": [
+                "Let’s define the Serre subcategory generated by considering the image that arises from the embedding."
+            ]
+        },
+        {
+            "section": "The abelianisation of a triangulated category",
+            "paragraph": 5,
+            "multilinear": 0,
+            "human": [
+                "Now assume that there is a universe V strictly containing U and fix a set I in . Let F be a fieldin U and consider the polynomial algebra . Modules over Λ are nothing but F -vector spaces with a distinguished set of endomorphisms indexedby the elements of I . Let F denote the trivial Λ -module (sothe endomorphisms given by the elements of I are zero) and let A denote the category of Λ -modules M that admit a submodule such that M ′ and are finite direct sums ofcopies of F . The category A is abelian and we write for its bounded derivedcategory bounded derivedcategory, which is the triangulated quotient of the homotopy categorywith respect to the subcategory of acyclic complexes. Then is a U -category, whereas is not. For instance, there is an isomorphism where denotes the free F -module with basis I . Thisexample is a variation of [2, Example 6.A] due toFreyd. The calculation of shows that the setof objects of A belongs to V , and therefore is a V -category."
+            ],
+            "ai": [
+                "Imagine that there exists a universe V that encompasses U, including a chosen set I within it. Let’s take F to be a field within U and focus on the polynomial algebra. Modules over Λ transcend ordinary F-vector spaces by incorporating a unique set of endomorphisms that are indexed by elements of I. Suppose F is considered as the trivial Λ-module-wherein the endomorphisms associated with elements of I equate to zero-and let A represent the category of Λ-modules M that contain a submodule, wherein both M and this submodule are finite direct sums composed of copies of F.The category A possesses an abelian structure, and we denote its bounded derived category, which is derived as a triangulated quotient of the homotopy category with respect to the subcategory of acyclic complexes. This results in a U-category, although it does not extend in the same form to V. For example, consider an isomorphism where ( F[I] ) denotes the free F-module with I as its basis. This scenario echoes [2, Example 6.A] conceived by Freyd. The computation of A’s structure illustrates that the collection of its objects is contained within V, thus classifying it as a V-category."
+            ]
+        },
+        {
+            "section": "The abelian hull of an arbitrary category",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "For a category C let denote its additive hull additive hull,which is obtained by taking formal finite direct sums of the objects ofthe Z -linearisation . The canonical functor induces for any additive category A an equivalence where denotes the full subcategory of additivefunctors."
+            ],
+            "ai": [
+                "Consider a category C and let us refer to its additive hull, which emerges when we engage in constructing formal finite direct sums of the objects present in the Z-linearisation. In this scenario, the canonical functor plays a pivotal role by establishing, in any given additive category A, an equivalence. Here, denotes the entire subcategory composed of additive functors."
+            ]
+        },
+        {
+            "section": "The abelian hull of an arbitrary category",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "For an additive category C let denote its completionunder finite colimits, which is obtained by adding formal cokernels ofthe morphisms in C , for instance by using the category of coherentfunctors into the category of abelian groups[1]. The canonical fully faithful functor induces for any additive category A with cokernels an equivalence where denotes the full subcategory of additivefunctors that are right exact."
+            ],
+            "ai": [
+                "Consider an additive category C and let’s refer to its completion with respect to finite colimits. This completion is achieved by incorporating formal cokernels for the morphisms within C. One can realize this by employing the category of coherent functors mapped into the category of abelian groups[1]. The canonical fully faithful functor instigates, for any additive category A that possesses cokernels, an equivalence where the notation signifies the full subcategory comprising additive functors that exhibit right exactness."
+            ]
+        },
+        {
+            "section": "The abelian hull of an arbitrary category",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "The abelian hull abelian hull of an additive category C is bydefinition Thisconstruction goes back to Freyd and Gruson [3, 6]. Thecanonical inclusion induces for any abeliancategory A an equivalence see [7, Proposition 12.4.1]. We summarise theseconstructions and obtain the following."
+            ],
+            "ai": [
+                "The concept of an abelian hull for an additive category C is a foundational idea that traces its origins to the work of Freyd and Gruson [3, 6]. This notion involves a definitive construction that, through the formation of a canonical inclusion, establishes an equivalence relationship for any given abelian category A, as discussed in [7, Proposition 12.4.1]. To better understand these intricate constructions, we present a summary that leads us to the following outcomes."
+            ]
+        },
+        {
+            "section": "The abelian hull of an arbitrary category",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "Now consider a localisation .This yields a commutative diagram C and we claim that the bottom horizontal functor is equivalent to aquotient functor."
+            ],
+            "ai": [
+                "Let’s now examine a localization process. This process results in a commutative diagram C. It is asserted that the functor located on the bottom horizontal level is essentially equivalent to a quotient functor."
+            ]
+        },
+        {
+            "section": "The abelian hull of an arbitrary category",
+            "paragraph": 5,
+            "multilinear": 0,
+            "human": [
+                "Fix again a universe V strictly containing U and a set I in . We consider the following quiver x y i σ i τ i and let C denote its path category path category. Thus the objects of C are the vertices of Γ and the morphisms are given by thepaths in Γ , including the trivial path at each vertex. Let . Then we have in"
+            ],
+            "ai": [
+                "Select another universe V that strictly encapsulates U, and determine a set I from within this chosen universe. We now focus on the following quiver: ( x rightarrow y ) with arrows labeled sigma_i and tau_i. Let’s designate the path category associated with this quiver as C. Specifically, the objects in C correspond to the vertices of the quiver Γ, and the morphisms are represented by the paths traversing Γ, inclusive of the negligible or identity paths at each vertex. With this context, consider the set ldots. Consequently, we observe within this framework that ldots."
+            ]
+        },
+        {
+            "section": "Acknowledgement",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "This note originates from a question in my course on representationtheory of algebras in the winter semester 2024/25. I am grateful forths inspiration, and also to Greg Stevenson for his comments on thiswork, in particular for suggesting the quiver in the second part ofthis note. This work was supported by the DeutscheForschungsgemeinschaft (SFB-TRR 358/1 2023 - 491392403)."
+            ],
+            "ai": [
+                "This document emerged from a query raised during my representation theory of algebras class in the winter term of 2024/25. I am sincerely appreciative of this source of inspiration, and I extend my thanks to Greg Stevenson for his insightful feedback on this work, especially for proposing the quiver included in the second section of this note. The Deutsche Forschungsgemeinschaft provided funding for this research through SFB-TRR 358/1 2023 - 491392403."
+            ]
+        }
+    ],
+    "2503.07051": [
+        {
+            "section": "Abstract",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "We theoretically investigate Cooper quartet correlations in doubly-magic nuclei( Ca 40 , Sn 100 , and Pb 164 ).We first examine the quartet condensation fraction in infinite symmetric nuclear matter by using the quartet Bardeen-Cooper-Schrieffer theory.Together with the total nucleon density profiles of doubly-magic nuclei obtained from the Skyrme Hartree-Fock calculation,we discuss the spatial distribution of quartet correlations in finite nuclei within the local density approximation.Large quartet condensate fractions are found at the surface region of an atomic nucleus due to the strong neutron-proton attractive interactions responsible for the deuteron formation in vacuum.Moreover, we discuss a possible microscopic origin of the Wigner term in the context of nucleon-quartet scattering in dilute symmetric nuclear matter.The nucleon-quartet scattering effect on the Wigner term is numerically estimated as about one order of magnitude of the total empirical strength,indicating the importance of multi-nucleon clusters in the symmetry energy and mass formula in addition to the neutron-proton pairing."
+            ],
+            "ai": [
+                "In our theoretical exploration, we delve into the realm of Cooper quartet correlations specifically within doubly-magic nuclei, namely ^40Ca, ^100Sn, and ^164Pb. Initially, we focus on scrutinizing the condensation fraction of quartets within an infinite expanse of symmetric nuclear matter, employing the quartet Bardeen-Cooper-Schrieffer BCS theory. Coupled with total nucleon density profiles derived from the Skyrme Hartree-Fock method applicable to doubly-magic nuclei, we embark on analyzing the spatial arrangement of quartet correlations present in finite nuclei, leveraging the local density approximation. Significant fractions of quartet condensates manifest predominantly at the nuclear surface. This is a consequence of the potent neutron-proton attraction forces which also facilitate the formation of deuterons in a vacuum environment. Furthermore, we explore a possible microscopic origin of the Wigner term through the lens of nucleon-quartet interactions within a dilute, symmetric nuclear matter framework. The impact of nucleon-quartet scattering on the Wigner term is rigorously quantified and estimated to be approximately tenfold of the total empirical strength. This highlights and underscores the crucial role played by multi-nucleon clusters in influencing both the symmetry energy and the nuclear mass formula. These effects go beyond mere neutron-proton pair interactions, implicating the necessity of considering quartet dynamics in comprehensive nuclear models."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "Cluster formation has been one of the key issues in nuclear physics.The Bardeen-Cooper-Schrieffer (BCS)-type pairing [1]of nucleons has greatly improved our understanding of nuclear structures and properties [2]as the pair correlations in nuclei can be confirmed via odd-even staggering of nuclear masses [3]."
+            ],
+            "ai": [
+                "One of the central challenges in the realm of nuclear physics has long been understanding how clusters form. Insights from the Bardeen-Cooper-Schrieffer BCS model of pairing nucleons [1] have significantly enhanced our comprehension of the nuances of nuclear structures and their inherent characteristics [2]. This understanding is further evidenced by the observable odd-even staggering in nuclear masses, which acts as confirmation of pair correlations within atomic nuclei [3]."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "Recent experiments indicate the existence of light multi-nucleon clusters beyond the pair formation.The α -knockout reaction has revealed the α -cluster formation in the surface region of medium-mass nuclei [4].Moreover, the Bose-Einstein condensate (BEC) of α particles have been discussed in excited α -conjugate nuclei [5, 6, 7, 8, 9].The light cluster formation also plays a crucial rolein astrophysical environments such as a burning reactions inside stars,a core-collapsed supernova,and a binary neutron-star merger [10].As several light clusters such as deuteron, triton, and α particle are known to be formed in the vacuum or dilute environment, it is important to develop many-body theories bridging dilute nuclear matter and nuclei to elucidate cluster formations and associated strong inter-nucleon correlations in these systems."
+            ],
+            "ai": [
+                "Recent experimental findings suggest that there are light multi-nucleon clusters extending beyond traditional nucleon pair formations. Notably, the α-knockout reaction has shed light on the emergence of α-cluster formation at the peripheral areas of medium-mass nuclei [4]. In addition, the concept of a Bose-Einstein condensate BEC comprising α particles has been debated in the context of excited α-conjugate nuclei [5, 6, 7, 8, 9]. The formation of these light clusters is also critically significant in astrophysical contexts, such as reactions fueling stellar burning, occurrences during core-collapse supernovae, and during the mergers of binary neutron-star systems [10]. Given that various light clusters, including deuterons, tritons, and α particles, are observed to form either in vacuum or low-density environments, it becomes imperative to cultivate comprehensive many-body theories. These theories should connect dilute nuclear matter to nuclear pastiches, providing deeper insight into cluster formations alongside the potent inter-nucleon correlations present within these formations."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "In particular, an α particle consisting of four nucleons is one of the most stable nuclear cluster with the large binding energy .Accordingly, a statistical approach has been employed to describe in-medium α particles in nuclei by including the Pauli-blocking effect [11].However, in the context of strongly-interacting fermions involving two-body cluster formations (i.e., BEC-BCS crossover) [12, 13],the interplay between the Pauli-blocking effect and the Cooper instability should be simultaneously taken into account for the cluster formation in many-body environments.In this regard, many-body theories involving cluster formations beyond the BCS paradigm as well as the liquid-drop model have been examined in the context of four-body correlations such as Refs. [5, 14, 15, 16, 17].So far, the variational ansatz based on the multiple occupation of quartet operators called quartet condensation model (QCM) has been proposed [18, 19],and moreover, the extension of the BCS theory to quartet correlation,called quartet BCS (QBCS) theory, has been developed and applied to nuclei [20, 21]and nuclear matter [22, 23].While the QBCS theory based on the quartet coherent state breaks the particle-number conservation even in the finite nuclei,the results of the correlation energy well agree with those of QCM with the particle-number conservation [20].In this sense, the QBCS theory can be a promising candidate for the description of Cooper quartet correlations even in the finite nuclei.On the other hand, it was not so clear how the quartet correlations are spatially distributed in mediumor heavy-mass nuclei because of the computational difficulties."
+            ],
+            "ai": [
+                "An α particle, which is composed of four nucleons, stands out as one of the most stable nuclear clusters owing to its substantial binding energy. Consequently, a statistical approach has been adopted to model in-medium α particles within nuclei by factoring in the Pauli-blocking effect [11]. However, in scenarios involving strongly interacting fermions such as two-body cluster formations-namely the BEC-BCS crossover [12, 13]-it becomes crucial to simultaneously consider both the Pauli-blocking effect and the Cooper instability when assessing cluster formations within many-body systems. In light of this, theories that extend beyond the traditional BCS framework, like the liquid-drop model, have been explored to understand cluster formations, focusing on four-body correlations as seen in works like Refs. [5, 14, 15, 16, 17]. Thus far, a variational approach known as the quartet condensation model QCM, which is rooted in the multiple occupation of quartet operators, has been proposed [18, 19]. In addition to this, the BCS theory has been expanded to include quartet correlations, giving rise to the quartet BCS QBCS theory, which has found applications in analyzing nuclei [20, 21] as well as nuclear matter [22, 23]. Although the QBCS theory, based on the quartet coherent state, does not preserve particle-number conservation even within finite nuclei, the correlation energy outcomes are strikingly consistent with those from the QCM, which does uphold particle-number conservation [20]. Therefore, QBCS theory emerges as a promising framework for depicting Cooper quartet correlations, even within finite nuclei. Nevertheless, the spatial distribution of quartet correlations in mediumor heavy-mass nuclei remains somewhat ambiguous due to computational complexities hindering clear insights."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "Meanwhile,as the pairing correlations induce the odd-even staggering of nuclear binding energy, do the quartet correlations make impacts on the nuclear properties in addition to the existence of the α -conjugate nuclei?This reasonable question may be associated with a term of which microscopic origin is still unclear,that is, the Wigner term in an empirical nuclear mass formula.It is named after Wigner, who gave a first description in the investigation on spin-isospin symmetry of the nuclear force [24, 25, 26].The Wigner term is proportional to and is therefore distinct from the conventional symmetry energy term proportional to 2 [27].Although nuclear binding energies can be well reproduced by mean-field approaches, the Wigner term still has to be added phenomenologically [28]and its microscopical origin is under discussion.In the finite nuclei, especially around the self-conjugate line ( ), there are many related theoretical works to figure out the physical origin of the Wigner term via the investigation of proton-neutron pair correlations [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],and even some attempts for the heavy nuclei [40, 41].Recently, the QCM study for the coexistence of quartets and pairs in even-even neutron-rich nuclei also showed a linear behavior of the correlation energy with respect to the extra neutron number upon the quartet correlations [42],indicating that the quartet correlations may be related to the Wigner term.Progress in producing heavy nuclei has also ignited interest in the Wigner term, and it gradually becomes directly observable up to a larger mass number A .In this regard, it is also worth investigating whether or not the Wigner cusp discontinuity persists to heavier and even yet unknown nuclei [29, 31]."
+            ],
+            "ai": [
+                "In the midst of research concerning nuclear properties, the influence of quartet correlations, alongside the recognition of α-conjugate nuclei, raises intriguing questions similar to how pairing correlations lead to the odd-even staggering phenomenon in nuclear binding energy. A pertinent question emerges: do these quartet correlations significantly affect nuclear characteristics beyond their known impact? This query intersects with an enigmatic term in empirical nuclear mass formulas-known as the Wigner term. Originating from the pioneering work of Wigner, who explored the spin-isospin symmetry inherent in nuclear forces [24, 25, 26], this term is named in his honor. Notably, the Wigner term is distinct, being proportional to a term that differs from the typical symmetry energy term, which is proportional to ^2 [27].Even though mean-field models effectively reproduce nuclear binding energies, the inclusion of the Wigner term is often phenomenologically necessary [28], as its microscopic origins continue to be debated. In-depth studies, particularly focused on finite nuclei around the self-conjugate line, aim to unveil the physical basis of the Wigner term by examining correlations between protons and neutrons [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]. Recently, efforts have expanded to heavy nuclei as well [40, 41]. In one contemporary approach-using the Quartet Condensate Model QCM-researchers examined the interplay between quartets and pairs within neutron-abundant even-even nuclei. This study revealed a linear relationship between correlation energy and the surplus of neutrons, suggesting a link between quartet correlations and the Wigner term [42].Interest in the Wigner term has further intensified due to advancements in synthesizing heavy nuclei, which may allow for its effects to become directly visible with increasing mass number A. An open avenue for research is scrutinizing whether the distinct Wigner cusp continues to influence much heavier, perhaps even undiscovered, nuclear species [29, 31]."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 5,
+            "multilinear": 0,
+            "human": [
+                "To see the impact of quartet correlations on the nuclear equation of state, one may borrow knowledge of quantum mixtures by assuming that the present system is similar to nucleon-cluster mixtures.In condensed-matter physics, quantum mixtures have been studied in terms of a polaron, which was originally proposed to describe electrons in ionic lattices [43, 44].Such a concept has been generalized to ultracold gas mixtures [45],where the polaron energy and equation of state can be measured experimentally [46, 47].Recently, the notion of polaron has also been extended to nuclear problems involving cluster formations [48, 49, 50, 51, 52].Indeed, the polaron energy of protons, proportional to proton number, in asymmetric nuclear matter is found to have a close relation to the nuclear symmetry energy [51].This indicates that the linear increase of the energy with respect to the particle number in quantum mixtures is connected with the intercomponent interaction.Accordingly, if one can find the spatial profile of quartet clusters and the interaction between such clusters and nucleon, one can estimate a similar contribution associated with the Wigner term in symmetry energy as a consequence of quartet correlations."
+            ],
+            "ai": [
+                "To comprehend how quartet correlations influence the nuclear equation of state, it is insightful to draw parallels from quantum mixtures by assuming a similarity between the system at hand and nucleon-cluster mixtures. In the realm of condensed-matter physics, the study of quantum mixtures often employs the concept of a polaron, initially introduced to model electrons within ionic lattices [43, 44]. This notion has been broadened to apply to mixtures of ultracold gases [45], where experimental measurements can be made of both the polaron energy and the equation of state [46, 47]. Recently, the concept of a polaron has been adapted to address nuclear challenges, particularly those involving cluster formations [48, 49, 50, 51, 52]. In fact, research has shown that the polaron energy of protons, which scales with the proton number, in asymmetric nuclear matter is closely tied to the nuclear symmetry energy [51]. This finding implies a connection between the linear rise of energy relative to particle number in quantum mixtures and the interaction between different components. Consequently, determining the spatial configuration of quartet clusters and their interaction with nucleons could allow for the estimation of a parallel contribution linked to the Wigner term in symmetry energy, attributable to quartet correlations."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 6,
+            "multilinear": 0,
+            "human": [
+                "In this paper, we theoretically investigate how quartet correlations emerge in doubly-magic nuclei via the following way:We first obtain the quartet condensation fraction for the infinite symmetric nuclear matter by the QBCS theory.Together with the total nucleon density profiles of doubly-magic nuclei from the Skyrme Hartree-Fock calculation,we perform the extension to the corresponding finite nuclei with the local density approximation (LDA).We show the spatial distributions of the quartet condensation fraction in several nuclei, that is, Ca 40 , Sn 100 , and Pb 164 .Here, we choose these doubly-magic nuclei to be treated as consisting of quartets for the following investigation of nucleon-quartet correlation.The quartet condensation fraction is found to be localized near the surface of nuclei.Upon such a result, we examine the role of nucleon-cluster scattering in the energy densityby considering the s -wave repulsion between a nucleon and an α -particle relevant to the low-density regime,i.e., the surface region of nuclei.We show that the contribution to the Wigner term can arise from the nucleon-quartet correlation effect and estimate its impact in the aforementioned nuclei,where a doubly-magic nucleus is treated as a core consisting of quartets and valence neutrons are considered."
+            ],
+            "ai": [
+                "This study delves into the emergence of quartet correlations within doubly-magic nuclei through a theoretical lens, emphasizing the process as follows: Initially, we calculate the quartet condensation fraction pertinent to infinite symmetric nuclear matter by employing the Quartet BCS QBCS theory. By integrating these findings with the overall nucleon density distributions of doubly-magic nuclei derived from the Skyrme Hartree-Fock calculations, we extend the analysis to finite nuclei using the local density approximation LDA. We illustrate the spatial variations in the quartet condensation fraction across a number of nuclei, such as ^40Ca, ^100Sn, and ^164Pb. The choice of these doubly-magic nuclei allows us to explore their constitution primarily as quartets, setting the stage for further exploration into nucleon-quartet correlations.Our analysis reveals that the quartet condensation fraction tends to concentrate around the surface regions of the nuclei. Building on these findings, we scrutinize the effect of nucleon-cluster scatterings on the energy density, particularly in consideration of s-wave repulsion occurring between a nucleon and an α-particle-phenomena observable in the low-density surface regions of nuclei. We demonstrate how the nucleon-quartet correlation can contribute to the Wigner term, and we assess its influence within the aforementioned nuclei, where the doubly-magic nucleus functions as a core composed of quartets while accounting for the presence of valence neutrons."
+            ]
+        },
+        {
+            "section": "Introduction",
+            "paragraph": 7,
+            "multilinear": 0,
+            "human": [
+                "This paper is organized as follows.In Sec. , we introduce our formalism including the QBCS theory combined with Skyrme Hartree-Fock calculation and LDA.Moreover, the effects of nucleon-cluster scattering and the relation to the Wigner term are presented.In Sec. , we present the numerical results of the quartet condensation fraction for the infinite symmetric nuclear matter via the QBCS theory and the spatial profile of the quartet condensation fraction in nuclei by using the Skyrme Hartree-Fock calculation with LDA.Furthermore, we estimate the Wigner-type energy contribution originating from the coexistence of quartets and nucleons in the surface region.Finally, a summary and perspectives are given in Sec. .In the following, we take ."
+            ],
+            "ai": [
+                "The structure of this paper is outlined as follows: In Section [X], we lay out our methodology, integrating the Quantum Bardeen-Cooper-Schrieffer QBCS theory with the Skyrme Hartree-Fock method and the Local Density Approximation LDA. Additionally, we examine how nucleon-cluster interactions affect the system and discuss their connection to the Wigner term. In Section [Y], we delve into the quantitative results concerning the fraction of quartet condensation in infinite symmetric nuclear matter as described by the QBCS theory, as well as the spatial distribution of these quartet condensation fractions within nuclear structures, achieved through the Skyrme Hartree-Fock calculations utilizing the LDA. Moreover, we evaluate the energy contribution reminiscent of Wigner, which arises from the simultaneous presence of quartets and nucleons in the peripheral regions of nuclei. Finally, Section [Z] concludes the paper with a summary of findings and potential future research directions. In what follows, we set [some constant] equal to [value]."
+            ]
+        },
+        {
+            "section": "Formalism",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "In this section, we present the formalism of the QBCS theory and its extension to the finite nuclei with LDA.Upon such a framework, we consider the nucleon-quartet correlations, which are not included in the QBCS theory."
+            ],
+            "ai": [
+                "In this part of our discussion, we delve into the formal structure of the QBCS theory and explore its adaptation for finite nuclei using the Local Density Approximation LDA. Building on this foundation, we also examine the correlations involving nucleon quartets, which are absent in the conventional QBCS theoretical framework."
+            ]
+        },
+        {
+            "section": "II.1 QBCS theory",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "First, we review the QBCS theory in infinite symmetric nuclear matter.For convenience, the system size is taken to be a unit for infinite-matter calculation.For detailed derivations, see Refs. [23, 53]."
+            ],
+            "ai": [
+                "To begin, let us examine the Quantum Bogoliubov Coupled-channel System QBCS theory as it applies to infinite symmetric nuclear matter. For the sake of simplification in calculations involving infinite matter, we consider a unit system size. For an in-depth exploration of the theoretical derivations, the interested reader can refer to References [23, 53]."
+            ]
+        },
+        {
+            "section": "II.1 QBCS theory",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "Since we focus on the quartet correlations near the surface of finite nuclei,we consider only the isoscalar pairing in this work, which is important in the low-density regime.The corresponding Hamiltonian is given by H The parameters introduced in the Hamiltonian are summarized in Table .In this paper, we take ."
+            ],
+            "ai": [
+                "In this study, our investigation zeroes in on the correlations of quartets that occur near the surface of finite nuclei. Therefore, our analysis is confined solely to isoscalar pairing, which plays a crucial role in the domain of low-density environments. The relevant Hamiltonian that underpins this work is denoted by H. The parameters that have been incorporated into this Hamiltonian are laid out in detail in Table . Within the context of this paper, the specific values we utilize are ."
+            ]
+        },
+        {
+            "section": "II.1 QBCS theory",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "The two-nucleon annihilation operators are defined as where and are the Clebsch-Gordan coefficients in the spin and isospin spaces, respectively.The corresponding creation operators are their conjugates.Moreover, we assume the symmetry of the interaction as ."
+            ],
+            "ai": [
+                "The annihilation operators for a pair of nucleons are characterized by definitions incorporating the Clebsch-Gordan coefficients within both the spin and isospin frameworks. These coefficients, essential in representing angular momentum coupling, play a pivotal role in these interactions. Conversely, the creation operators are essentially the conjugate counterparts of these annihilation operators. Furthermore, it is assumed that the interaction adheres to the following symmetry: ."
+            ]
+        },
+        {
+            "section": "II.1 QBCS theory",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "Considering the zero center-of-mass momentum and taking the case of ,the quartet creation operator can be introduced as The QBCS trial wave function is taken as with the normalization where we introduced .Calculating the expectation value of Hamiltonian and the pairing energy gaps we apply the variational principle leading to v v w q with and"
+            ],
+            "ai": [
+                "Taking into account the situation where the center-of-mass momentum is zero, one can define the quartet creation operator. When examining this scenario, the QBCS trial wave function is articulated as follows, adhering to specific normalization conditions where the variable is introduced. In determining the expectation value of the Hamiltonian and evaluating the pairing energy gaps, we employ the variational principle, which results in v v w q with the parameters and further defined."
+            ]
+        },
+        {
+            "section": "II.1 QBCS theory",
+            "paragraph": 5,
+            "multilinear": 0,
+            "human": [
+                "Being similar to the case of the conventional BCS theory [54],the quartet condensate density and its fraction with respect to the total densitycan be calculated as ρ α C Instead of the contact-type nucleon-nucleon interaction adopted in the previous work [23],here we employ the finite-range interaction with the Gaussian form factor given by with the relative momenta q ( q ′ ) of paired nucleons,the coupling constant λ , and the range parameter b [55].These parametersare taken as and ,respectively, to reproduce the α particle binding energy in the free space."
+            ],
+            "ai": [
+                "Much like the scenario observed in the traditional BCS theory [54], one can determine the quartet condensate density and its proportion relative to the complete density, denoted as ραC. Contrary to the previously utilized contact-type nucleon-nucleon interaction [23], our approach involves employing a finite-range interaction characterized by a Gaussian form factor. This is articulated in terms of the relative momenta q ( q′ ) for the paired nucleons, the coupling constant λ, and the range parameter b [55]. These specific parameters are selected with values of and , respectively, to accurately reproduce the binding energy of an α particle when it exists freely in space."
+            ]
+        },
+        {
+            "section": "II.2 LDA extension to finite nuclei",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "Once we have the total nucleon density profiles of finite nuclei,we can apply the LDA to calculate the corresponding spatial distribution of the quartet condensation fraction.In detail, for a certain nucleus, at a fixed spatial coordinate r ,the local quartet condensation fraction is approximated by the one obtainedin the infinite symmetric nuclear matter with the same total local nucleon density via the QBCS theory as introduced in Sec. ."
+            ],
+            "ai": [
+                "After determining the comprehensive nucleon density profiles for finite nuclei, we can employ the Local Density Approximation LDA to compute the related spatial distribution of the quartet condensation fraction. Specifically, for any given nucleus and at a particular spatial point denoted as r, the quartet condensation fraction for that location is roughly estimated by using the one acquired for infinite symmetric nuclear matter. This approximation is derived by using the same total local nucleon density, as per the Quartet Bardeen-Cooper-Schrieffer QBCS theory outlined in Section [insert section number here]."
+            ]
+        },
+        {
+            "section": "II.2 LDA extension to finite nuclei",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "To this end, we perform the Skyrme Hartree-Fock calculation [56] with the SLy4 energy density functional [57].The spatial coordinate is discretized and the spherical symmetry is assumed.The box is used for the radial coordinate to perform the numerical calculation.Throughout this calculation, we obtain the density profile of an atomic nucleus."
+            ],
+            "ai": [
+                "In pursuit of our objectives, we conduct the Skyrme Hartree-Fock computational analysis as outlined in reference [56], employing the SLy4 energy density functional as detailed in [57]. We apply discretization to the spatial variables while maintaining the assumption of spherical symmetry. For the purpose of executing the numerical procedures, a predefined box is utilized for the radial coordinate. As a result of this analytical process, we successfully derive the density distribution of an atomic nucleus."
+            ]
+        },
+        {
+            "section": "II.2 LDA extension to finite nuclei",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "After obtaining the quartet condensation fractions of finite nuclei as functions of spatial coordinates,we will discuss the quartet correlations at the surface of nuclei."
+            ],
+            "ai": [
+                "Upon acquiring the quartet condensation fractions for finite nuclei as they relate to spatial coordinates, we will delve into the exploration of quartet correlations occurring at the nuclear surface."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "In order to discuss the nucleon-quartet correlations in the dilute regime,which are not taken into account in the QBCS theory, we consider the system consisting of quartets and a few residual neutrons.For simplicity, we assume that the effective nucleon-quartet interaction can be expressed in terms of nucleonα interaction.In such a case, the s -wave neutronα interaction is characterized by the finite-range repulsive interaction V where α k is an annihilation (creation) operator of an α -like quartet cluster as that in the QBCS theory.We employ the separable form of as with the form factor [58] The parameters U 0 , χ , and Λ are determined in such a way that the scattering length and the effective range [59, 48]are reproduced in the low-energy scattering (for more details, see Appendix )."
+            ],
+            "ai": [
+                "To delve into the nucleon-quartet correlations present in a dilute regime, which the QBCS theory overlooks, we examine a system made up of quartets along with a few leftover neutrons. For simplification, we posit that the interaction between nucleons and quartets can be accurately represented by the nucleon-α interaction. In scenarios like this, the interaction between s-wave neutrons and α particles is defined by a finite-range repulsive force denoted as V, where α_k serves as both the annihilation and creation operator for an α-like quartet cluster, similar to what is found in the QBCS theory. To facilitate this, we adopt a separable form incorporating the form factor as referenced in source [58]. The parameters, denoted U_0, χ, and Λ, are meticulously calibrated to ensure that both the scattering length and effective range are mirrored accurately in low-energy scattering scenarios. Full details and derivations can be found in the Appendix for further exploration."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "We then try to obtain the interaction effects on a nucleon coexisting with the quartet condensate based on the Green’s function formalism.The nucleon Green’s function reads Here, we consider the Beliaev-type contribution [60]for the self-energy as where is the neutron-quartet scattering T -matrix with the reduced mass (see also Appendix ),and ρ α is the quartet condensate density.While we do not consider the contribution from non-condensed quartet clusters,such excited states can be regarded as in-medium nucleons resulting from the breakup of clusters due to the Pauli-blocking effect.Also, since we are interested in the low-density regime,the Pauli-blocking of nucleons in the intermediate state is neglected in Eq. ()."
+            ],
+            "ai": [
+                "In our study, we aim to assess the interaction effects experienced by a nucleon when it exists alongside the quartet condensate, employing the Green’s function formalism to guide our exploration. The expression for the nucleon Green’s function is as follows: We focus on the Beliaev-type contribution [60] in the context of self-energy, formulated as where the neutron-quartet scattering T-matrix is employed, calculated using the reduced mass (refer to Appendix for more information), with ρ α denoting the density of the quartet condensate. Although contributions from non-condensed quartet clusters are not included, we can interpret such excited states as in-medium nucleons. These in-medium nucleons emerge due to cluster disintegration caused by the Pauli-blocking effect. Additionally, since our primary interest lies in examining conditions at low-density levels, in intermediate states, the Pauli-blocking effect on nucleons is disregarded in Eq. ()."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "The self-energy shift of a dressed neutron is obtained as At the weak-coupling limit, we find where the Hartree shift E H has exactly been reproduced.We note that the Fock term is absent here because V works between two distinguishable objects (i.e., nucleon and α -like quartet cluster)."
+            ],
+            "ai": [
+                "The alteration in self-energy for a dressed neutron is derived as follows: Under the condition of weak coupling, the result coincides with the precise reproduction of the Hartree shift, denoted as E_H. It’s crucial to highlight that within this context, the Fock term does not appear. This omission is due to the fact that the interaction potential V operates between two distinct entities-specifically, a nucleon and an α-like quartet cluster."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "For low-energy excitations,Eq. () can approximately be simplified as where the quasiparticle residue the inverse effective mass and the decay width"
+            ],
+            "ai": [
+                "When considering low-energy excitations, Equation () can be roughly modified to where the quasiparticle residue, the reciprocal of the effective mass, and the decay width come into play."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 5,
+            "multilinear": 0,
+            "human": [
+                "In Fig. , we show E P , Z P , , and Γ P as functions of the quartet condensation density ρ α ,where is taken.For comparison, E H given by Eq. () is also plotted.One can find E P given by Eq. () agrees well with E H in the low-density region shown in Fig. .In addition, we obtain and at ,indicating that E H without further Fermi-liquid corrections gives a qualitatively good estimation of the correlation energy for nucleon-cluster scattering.We note that the present effective mass M eff is defined by expanding the self-energy at the zero momentum, and it is different from the conventional studies [61] where the self-energy is expanded near the nucleon Fermi momentum.Our result in Fig. shows that M eff is larger than M in the dilute regime due to the nucleonα interaction, consistent with a cold-atomic counterpart [60].Such a tendency can also be found in proton excitations in dilute asymmetric nuclear matter with the strong proton-neutron interaction [62, 50].Incidentally, the p -wave resonance associated with He 5 resonant states,which plays an important role in the formation of halo nuclei [63],additionally enhances M eff at larger ρ α butdoes not contribute to E P [52]."
+            ],
+            "ai": [
+                "In Figure , we present plots of E_P, Z_P, , and Γ_P in relation to the quartet condensation density, ρ_α, with a specific context assumed. For the sake of comparison, the graph also displays E_H as derived from Equation (). Upon examining the data, one notices that the values of E_P, as computed via Equation (), show a strong alignment with E_H particularly in the low-density region illustrated in Figure . Furthermore, the values of and at suggest that E_H, without the inclusion of additional Fermi-liquid corrections, provides an adequately qualitative estimate of the correlation energy pertinent to nucleon-cluster scattering scenarios. It is worth mentioning that the current definition of the effective mass, M_eff, involves an expansion of the self-energy centered at zero momentum. This approach diverges from traditional analyses [61], where expansions are performed near the nucleon Fermi momentum. As revealed in Figure , the results demonstrate that M_eff exceeds M in the sparsely populated regime due to nucleon-α interactions, paralleling findings in cold atomic systems [60]. A similar pattern is observable in proton excitations within dilute asymmetric nuclear matter arising from significant proton-neutron interactions [62, 50]. Interestingly, the p-wave resonance linked to the He-5 resonant states, which significantly influences halo nuclei formation [63], further increases M_eff at elevated values of ρ_α, though it does not affect E_P [52]."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 6,
+            "multilinear": 0,
+            "human": [
+                "Meanwhile,the Landau-Pomeranchuk-type energy density [64]of residual neutrons with the quartet condensates reads where is the ground-state energy density of the quartet condensate.Here ρ n is the residual neutron density,and we denote the total nucleon density as ,and approximate the energy density of symmetric nuclear matter by Expanding the right-hand side with respect to ρ n ,we find where is the effective chemical potential of an α -like quartet cluster.Eventually, we find The symmetry energy is defined as [51] S As a first approximation, one may assume (i.e., ignoring the quartet-quartet interaction) and obtain .While we consider residual neutrons explicitly,the same equation can be obtained for the residual proton case by assuming that the effects of the interaction between residual nucleons are included in the QBCS theory."
+            ],
+            "ai": [
+                "Meanwhile, the Landau-Pomeranchuk-style energy density for residual neutrons in the presence of quartet condensates can be expressed accordingly, where this component reflects the ground-state energy density pertaining to the quartet condensate. In this context, rho_n symbolizes the density of residual neutrons, and we represent the total nucleon density as rho. For the purpose of simplification, we approximate the energy density of symmetric nuclear matter as a functional expansion. Proceeding with an expansion of the right-hand side in terms of rho_n, we identify an effective chemical potential linked to an α-like quartet cluster. Subsequent calculations reveal that the symmetry energy is characterized by S, as outlined in reference [51]. In an initial rough estimate, one might neglect interactions within the quartets themselves (e.g., quartet-quartet interactions), under the assumption that ( S = S_0 ), leading us to a straightforward approximation. If we explicitly consider the role of residual neutrons, analogous results can be derived for residual protons by postulating that QBCS theory inherently accounts for the interactions among the residual nucleons."
+            ]
+        },
+        {
+            "section": "II.3 Neutron self-energy for the sssitalic_s-wave neutron-cluster interaction",
+            "paragraph": 7,
+            "multilinear": 0,
+            "human": [
+                "On the other hand, the linear behavior of S with respect to the residual nucleon density is reminiscent ofthe Wigner term.As for the neutron-rich matter with a small asymmetry, the corresponding equation of state expanded up to the leading order can be generally given by ρ where ρ is the total neutron (proton) density.Comparing Eqs. () and (),one can obtain for small residual nucleon densities,where we assumed that the density asymmetry is directly related to the residual nucleon density ρ n (otherwise, the neutron-proton pairing can occur but such an effect has already been taken into account in the QBCS theory)."
+            ],
+            "ai": [
+                "Conversely, the proportional relationship of S to the remaining nucleon density brings to mind the Wigner term. For neutron-rich matter characterized by minimal asymmetry, the equation of state, expanded to its leading terms, can typically be expressed as ρ, with ρ denoting the cumulative density of neutrons protons. Upon examining Equations () and (), one can discern, particularly for minor residual nucleon densities, that we’ve considered the density asymmetry as directly proportional to the residual nucleon density ρ_n. If this were not the case, neutron-proton pairing might arise; however, this phenomenon has been previously incorporated within the framework of QBCS theory."
+            ]
+        },
+        {
+            "section": "Numerical results",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "First, we present the numerical results of the quartet condensate fraction C obtained by the QBCS theory in the infinite symmetric nuclear matter.Fig. (a) shows C as a function of the total nucleon density ρ .In the dilute limit, C approaches one (although we do not show it explicitly)and immediately decrease up to .This result reflects that in the low-density regime,the formation of α particles is dominant and form the condensate because we use the zero-temperature formalism.In this regard, as shown in Fig. (b), the quartet condensate density ρ α given by itself is not so large."
+            ],
+            "ai": [
+                "Initially, we showcase the numerical outcomes related to the quartet condensate fraction, denoted as C, derived using the Quartet-Bogoliubov-de Gennes QBCS theory pertaining to infinite symmetric nuclear matter. Figure a illustrates how C varies in relation to the overall density of nucleons, which we represent by ρ. As we approach the dilute limit, C trends toward one; this is implied rather than explicitly depicted. Then, it swiftly diminishes, revealing that, within the low-density spectrum, the emergence of α particles prevails, fostering the formation of the condensate. This occurs primarily because we employ a formalism that assumes zero temperature. Additionally, as depicted in Figure b, the corresponding quartet condensate density, ρ α, is relatively small when considered independently."
+            ]
+        },
+        {
+            "section": "Numerical results",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "At larger densities, C decreases relatively slowly with increasing ρ .This indicates that the interaction energy is gradually smaller than the nucleon Fermi energy and the system undergoes the weak-coupling regime as in the case of the density-induced BEC-BCS crossover [65].On the other hand, the quartet condensate density given by [see Fig. (b)] increases up to , and starts to decrease with increasing ρ .This behavior is associated with the finite-range properties of the nucleon-nucleon interaction.As in the pairing case [66, 67],the effective-range correction reduces the cluster formation at high densities.Eventually, the maximum quartet condensate density can be estimated as ,implying that the low-energy assumption on the nucleon-cluster correlations characterized by Eq. () could be valid."
+            ],
+            "ai": [
+                "At higher density levels, the value of C declines at a relatively slow pace as ρ increases. This trend suggests that the interaction energy becomes progressively smaller when compared to the Fermi energy of nucleons, leading the system into a weak-coupling phase similar to what is seen in the density-induced BEC-BCS crossover scenario [65]. In contrast, the quartet condensate density, illustrated in [Fig. b], initially rises until reaching a certain point, after which it starts to decrease as ρ continues to grow. This shift in behavior is linked to the finite-range characteristics inherent in nucleon-nucleon interactions. Similar to the pairing phenomenon [66, 67], the corrections due to the effective range act to diminish cluster formation at elevated densities. Ultimately, one can estimate the peak quartet condensate density as , indicating that the assumption of low-energy nucleon-cluster correlations, outlined by Eq. (), might hold valid under these conditions."
+            ]
+        },
+        {
+            "section": "Numerical results",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "We note that while present Fig. (a) shows a qualitatively reasonable description of the quartet condensation fraction, there are still some improvements left for the future work.In particular, the relatively slow decrease of C in the high-density regime may be related to the overestimation of C in the present QBCS theory without the short-range repulsion and the three-body forces.Nevertheless,the quartet condensation fraction generally exhibits a small value in the high-density regime due to the finite-range property of , and hence our results would be unchanged qualitatively by this overestimation."
+            ],
+            "ai": [
+                "Let us consider the insights provided by the current Fig. a, which captures a qualitatively plausible representation of the quartet condensation fraction. However, it is important to acknowledge that there is still room for enhancement in future endeavors. Particularly noteworthy is the somewhat gradual decline of C in regions of high density. This phenomenon is likely tied to the current QBCS theory’s inclination to overestimate C, as it does not incorporate the effects of short-range repulsion or three-body interactions. Despite this, it is worth mentioning that the quartet condensation fraction generally maintains a relatively low value in the high-density area, thanks to the finite-range characteristics of . Therefore, even with such overestimation, our qualitative conclusions remain robust and consistent."
+            ]
+        },
+        {
+            "section": "Numerical results",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "Next, by extending the QBCS theory to the finite nuclei with LDA, we discuss the spatial profile of the quartet condensate fraction and density therein.The total nucleon density profiles for Ca 40 , Sn 100 , and Pb 164 by the Skyrme Hartree-Fock calculation are shown in the top panels of Fig. .Based on such total nucleon density profiles, we plot the local quartet condensation fractions and densities as functions of r through LDA.In the middle panels of Fig. ,one can find that C rapidly increases at the outer region where ρ becomes smaller.In particular, at outermost, can be found.This indicates that the system prefers to the formation of quartet clusters(i.e., α particles) in the dilute outer regime of nuclei.The quartet condensation density shown in the bottom panels of Fig. can be obtained as the product of and and thus exhibits a peaked behavior around the surface region of nuclei.Such a tendency is consistent with the recent experiments of neutron-rich nuclei [4],although we do not consider the isospin asymmetry due to the Coulomb interaction for simplicity."
+            ],
+            "ai": [
+                "In the following analysis, we broaden the QBCS (Quasi Boson Condensation System) framework to apply it to finite nuclei via the Local Density Approximation LDA, examining the spatial distribution of the quartet condensate fraction and its density in these nuclei. For Ca-40, Sn-100, and Pb-164, the Skyrme Hartree-Fock model has been utilized to present the total nucleon density profiles, depicted in the upper section of Fig. . Using these comprehensive nucleon density profiles as a foundation, we graph the quartet condensation fractions and local densities as they vary with radius r, employing the LDA method. Observations in the central panels of Fig. reveal that the condensation fraction C escalates dramatically in the peripheral regions where the density, ρ, diminishes. Notably, at the outermost layers of the nuclei, this rise becomes prominent, indicating an increased tendency for the formation of quartet clusters, corresponding to α particles, within these sparse outer zones of the nuclei. The resulting quartet condensation density, presented in the lower panels, is derived as a product of the local density and the condensation fraction. This results in a pronounced peak around the nuclear surface. This phenomenon aligns with recent experimental observations of neutron-rich nuclei [4], although our analysis does not factor in the isospin asymmetry introduced by the Coulomb interaction to keep the model straightforward."
+            ]
+        },
+        {
+            "section": "Numerical results",
+            "paragraph": 5,
+            "multilinear": 0,
+            "human": [
+                "Finally, we estimate the nucleon-quartet correlation which can be regarded as the contribution to Wigner term,in Ca , Sn , and Pb neutron-rich isotopes.In detail, we evaluate the LDA Wigner term originating from the nucleon-quartet correlation as with A the mass number and where is the spatial distribution of the total nucleon density for the conjugate core.By adopting the nuclear size R max such that and assuming uniform residual neutron density in the practical calculation,we obtain the simplified form E W LDA We summarize the numerical results of a W in Table .One can find a W tends to increase for larger nuclei,indicating that the larger quartet condensation density shown in Fig. leads to larger a W ."
+            ],
+            "ai": [
+                "In conclusion, we proceed to assess the nucleon-quartet correlation, which can be interpreted as a contribution to the Wigner term, in neutron-rich isotopes of calcium Ca, tin Sn, and lead Pb. Specifically, we undertake an evaluation of the Local Density Approximation LDA Wigner term, which arises due to nucleon-quartet correlations. This correlation is assessed with respect to the mass number A, and considers the spatial distribution of the total nucleon density of the conjugate core.By selecting an appropriate nuclear size R_max, defined such that it suits our needs, and assuming that the remaining neutron density remains consistent throughout the practical calculations, we derive the simplified expression E_W^LDA. We consolidate the computational outcomes for a_W in the accompanying Table. Observations reveal that a_W tends to get larger for more massive nuclei, suggesting that a greater quartet condensation density, as illustrated in Fig., correlates with an increased a_W."
+            ]
+        },
+        {
+            "section": "Numerical results",
+            "paragraph": 6,
+            "multilinear": 0,
+            "human": [
+                "The empirical values [35, 68, 69]for the strength of the Wigner term, ,extracted from binding energies can be described by the average line with - and .By comparing present results with empirical ones, although the mass-number dependence might be different,it is found that the contribution of Wigner term from nucleon-quartet cluster scattering isthe one order of magnitude smaller ( 4 - depending on A )of total empirical strength.Importantly, our results show the same sign as the empirical data.In this regard, when one tries to fit the empirical value with the phenomenological parameters in the energy density,the additional quartet contribution shown in this work affects the magnitude of such parameters.In addition, the total number N α of quartet condensates is calculated by spatially integrating .It is found that holds for all species.Both the nucleon-quartet correlation and N α become relatively larger with increasing mass number.Our results indicate that the nucleon-quartet correlation may be the partial origin of Wigner term, whereas its contribution is not sufficient to explain the empirical value.It should be noted that, in more realistic situations,the nucleon density involves the isospin asymmetry in the core and moreover the gradient correction beyond the LDA would be worth investigating.These effects will be further considered in the future work."
+            ],
+            "ai": [
+                "The empirical assessments [35, 68, 69] regarding the intensity of the Wigner term, derived from binding energies, can be delineated by an average line characterized by - and . When juxtaposing our current findings with empirical data, it becomes evident that, despite potential differences in the dependency on mass number, the contribution from nucleon-quartet cluster interactions to the Wigner term is significantly smaller-by an order of magnitude-compared to the total empirical strength (4 - depending on A). Importantly, our findings align in sign with the empirical observations. This similarity in sign suggests that when fitting empirical values with phenomenological parameters in the energy density, the additional quartet contribution identified in this study influences the magnitude of such parameters.Furthermore, we calculate the total number N_alpha of quartet condensates by spatially integrating , which reveals that this relationship holds true for all species examined. We observe that both the nucleon-quartet correlation and N_alpha expand as the mass number increases. Our findings propose that the nucleon-quartet correlation might partially contribute to the origin of the Wigner term, though its impact alone does not suffice to account for the empirical value. It is important to recognize that in more realistic scenarios, nucleon density incorporates isospin asymmetry within the core, and exploring gradient corrections beyond the Local Density Approximation LDA would be beneficial. These additional effects are slated for further exploration in future studies."
+            ]
+        },
+        {
+            "section": "Summary and perspectives",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "In this paper, we theoretically investigate Cooper quartet correlations in nuclei by combining the QBCS theory and the Skyrme Hartree-Fock calculation with the LDA.Large quartet condensate fractions are found in the low-density regime of infinite symmetric nuclear matter and in the surface region of finite nuclei Ca 40 , Sn 100 , and Pb 164 ,partially manifesting the tendency of α -cluster formation around the surface of medium-mass neutron-rich nuclei [4]."
+            ],
+            "ai": [
+                "In this study, we conduct a theoretical exploration of Cooper quartet correlations within nuclear systems by integrating the Quartet-Based BCS QBCS theory with Skyrme Hartree-Fock computations employing the Local Density Approximation LDA. Our findings reveal substantial fractions of quartet condensates in regions of low density within infinite symmetric nuclear matter. These condensate levels are also prominent in the surface areas of finite nuclei, specifically those of calcium-40 (Ca 40), tin-100 (Sn 100), and lead-164 (Pb 164). This observation partly demonstrates the propensity for α-cluster formations around the peripheries of medium-heavy, neutron-rich nuclei, aligning with previous research [4]."
+            ]
+        },
+        {
+            "section": "Summary and perspectives",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "To see the consequence of quartetting on the nuclear mass formula,we explore the relation between nucleon-quartet correlations and the Wigner term of which the origin is still elusive.Based on the fact that the quartet condensate is localized near the surface region with low densities,we evaluate the effects of the nucleon-cluster repulsive interaction by using the Hartree-Fock approach combined with the nucleonα scattering T -matrix.Eventually, it is found that the contribution to the Wigner term in the mass formula gives about one order of the magnitude of the empirical value.Our result indicates that nucleon-quartet correlations give a non-negligible contribution to the Wigner term in addition to the neutron-proton pairing previously considered in the literature."
+            ],
+            "ai": [
+                "To understand the impact of quartetting on the nuclear mass formula, we delve into the connection between nucleon-quartet correlations and the Wigner term, the origins of which remain somewhat enigmatic. Recognizing that quartet condensates are predominantly situated near the surface regions where densities are relatively low, we investigate the implications of nucleon-cluster repulsive interactions. This is achieved through an examination utilizing the Hartree-Fock method in conjunction with the nucleon-α scattering T-matrix. Ultimately, our analyses reveal that the contribution to the Wigner term within the mass formula is approximately an order of magnitude similar to the empirical values. Our findings suggest that the correlations among nucleon quartets play a significant role in the Wigner term, adding an important dimension beyond the neutron-proton pairing that has been extensively examined in previous studies."
+            ]
+        },
+        {
+            "section": "Summary and perspectives",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "For future perspectives, we have used the non-self-consistent approach for quartet correlations.It is interesting to see how the nucleon density profiles are further modified by the quartet correlations.Moreover, the extension to the neutron-rich side and the application to α -knockout reaction is worth investigating for the comparison with recent experiments."
+            ],
+            "ai": [
+                "Looking ahead, we have implemented a non-self-consistent methodology to explore quartet correlations. The intriguing aspect of this study lies in observing how these correlations further alter nucleon density distributions. Additionally, expanding this research to include neutron-rich systems and applying these findings to α-knockout reactions could yield valuable insights when juxtaposed with contemporary experimental results."
+            ]
+        }
+    ],
+    "2503.05687": [
+        {
+            "section": "Abstract",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "Hubbard systems are paradigmatic realizations of strongly correlated many-body systems. Introducing additional species breaks the SU(2) symmetry of the Hubbard model and leads to a wide variety of novel exotic quantum phases. Three-component fermionic systems are at the heart of model systems for quantum chromodynamics where the three components reflect the three flavors. Here, we extend quantum gas microscopy to three-flavor Fermi lattice gases in the Hubbard regime. Relying on siteand flavor-resolved detection, we study the phase diagram of the three-flavor Hubbard model and find signatures of flavor-selective localization and selective pairing at temperatures down to the tunneling energy scale. Our measurements are compared with numerical linked-cluster expansion calculations. Further increase of phase space density may enable the observation of a novel pair Mott phase at half filling, and shows a path towards the study of color superfluidity and other aspects of quantum chromodynamics."
+            ],
+            "ai": [
+                "Hubbard systems serve as quintessential examples of strongly interacting many-body frameworks. By incorporating additional species, the inherent SU2 symmetry within the Hubbard model is disrupted, paving the way for an extensive array of unique and exotic quantum states. Systems involving three fermionic components are central to theoretical constructs in quantum chromodynamics, wherein these components symbolize the trio of flavors. In this context, we have expanded quantum gas microscopy techniques to probe three-flavor Fermi lattice gases within the Hubbard framework. Through detection that resolves both site and flavor, we delve into the phase diagram pertinent to the three-flavor Hubbard model. Our investigation has unveiled indicators of localization and pairing that are selective to certain flavors, observable at temperatures approaching the tunneling energy threshold. The empirical findings from our study are juxtaposed with calculations derived from numerical linked-cluster expansion methods. Advancing the phase space density potentially sets the stage for detecting an unprecedented pair Mott phase at half-filling and offers a promising direction for exploring color superfluidity and further facets of quantum chromodynamics."
+            ]
+        },
+        {
+            "section": "I.1 Preparation of three-flavor Fermi gases",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To prepare a three-component mixture, we ramp the magnetic field to 594 G in 50 ms at the end of the final evaporation and obtain a tunable mixture by applying radio-frequency (RF) pulses to drive the and transitions. The optimization of a balanced three-component mixture is accomplished by fine-tuning the pulse duration to transfer one third of the population in each pulse (Fig. )."
+            ],
+            "ai": [
+                "In order to create a three-component mixture, we quickly adjust the magnetic field, ramping it up to 594 Gauss over a span of 50 milliseconds at the conclusion of the last evaporation stage. This results in a mix with adjustable properties, achieved through the application of radio-frequency RF pulses that induce specific transitions. Achieving an optimized balance in this three-component mixture requires careful calibration of the pulse duration, ensuring that these pulses each transfer one third of the population (illustrated in Fig. )."
+            ]
+        },
+        {
+            "section": "I.1 Preparation of three-flavor Fermi gases",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "We verified the flavor population for each dataset by constructing atom number histograms as demonstrated in Fig. ."
+            ],
+            "ai": [
+                "To confirm the distribution of flavors within each dataset, we meticulously crafted histograms of atom numbers, an approach illustrated in Fig. ."
+            ]
+        },
+        {
+            "section": "I.1 Preparation of three-flavor Fermi gases",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "The thermalization dynamics of three-flavor Fermi gases has not been studied in detail previously. To make sure the thermalization before loading into the lattice does not impact our measurements significantly, we vary the duration of the loading into a square lattice and measure all three flavor densities. The density profiles are fitted to zeroth-order high temperature series expansions to extract an effective temperature (Sec. ). The experimental ramp time is determined based on the minimal fitted effective temperature, as depicted in Fig. . We note that shorter ramp durations lead to non-equilibrium states which the theory fails to capture, while longer ramp durations suppress the correlations because of higher temperatures caused by heating of the Fermi gas. Table shows the experimental parameters used in the main text."
+            ],
+            "ai": [
+                "The exploration of thermalization dynamics in three-flavor Fermi gases has not been comprehensively examined until now. To ensure that the thermalization process before introducing the gases into the lattice does not considerably affect our observations, we adjust the loading time into a square lattice and then assess the densities of all three flavors. For this, the density profiles are analyzed using zeroth-order high-temperature series expansions, allowing us to extract an effective temperature, as further detailed in Section . The chosen experimental ramp time corresponds to the point where the fitted effective temperature is at its lowest, as illustrated in Figure . It is important to highlight that shorter ramp times produce non-equilibrium states, which elude theoretical predictions. Conversely, lengthening the ramp time diminishes correlations due to elevated temperatures resulting from heating the Fermi gas. Table provides a detailed account of the experimental parameters applied in the principal text."
+            ]
+        },
+        {
+            "section": "I.2 Bilayer implementation and readout",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "The setup of the two light sheets is shown in Fig. 1 of the main text. We split the power 50:50 between the two light sheets using a high-power polarizing beamsplitter cube and combine both light sheets with crossed polarization on another beamsplitter. We add a 1:1 telescope to the longer path, thus ensuring the beams are of identical shape. Atoms are captured by the two light sheets after a Stern-Gerlach separation. During the imaging process, we collect scattered light from atoms in both light sheets simultaneously through the high-resolution objective and split the fluorescence light of the two individual light sheet layers equally by a beamsplitter. We image both layers at the same time by compensating the focus shift of the reflected beam from the beamsplitter by a thick glass block. The vertical alignment of both light sheets can be individually computer-controlled by two mirrors attached to galvanometer scanners (Fig. )."
+            ],
+            "ai": [
+                "The configuration of the dual light sheets is illustrated in Figure 1 of the primary document. We allocate the power evenly between these two light sheets by employing a high-power polarizing beam splitter cube. Subsequently, we blend both light sheets using crossed polarization on an additional beamsplitter. To ensure that the beams maintain uniform configuration, we incorporate a 1:1 telescope into the more extended path. Following the Stern-Gerlach separation, atoms are captured by the two light sheets. During imaging, the scattered light emanating from atoms within both light sheets is captured simultaneously using a high-resolution objective. The fluorescence from the two distinct layers of the light sheets is then divided evenly through another beamsplitter. We simultaneously image both layers by correcting the focal shift of the beam reflected off the beamsplitter with a substantial glass block. The vertical position of each light sheet can be individually controlled via a computer, using two mirrors that are mounted on galvanometer scanners (refer to Fig. )."
+            ]
+        },
+        {
+            "section": "I.2 Bilayer implementation and readout",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "To perform the Stern-Gerlach separation, the control of the magnetic field gradient is key. We form an anti-Helmholtz coil configuration by reversing the current direction through one Feshbach coil using a water-cooled H-bridge circuit. This allows us to access magnetic fields gradients of up to at .The states we choose to perform the separation are and because the state has a strong magnetic moment at almost zero field and the sign is opposite to the magnetic moment of . Therefore, both components will split efficiently in the presence of a magnetic field gradient.We ensure that we maintain a small magnetic offset field of about 5 G during the splitting to maximize the magnetic moment difference between both states (Fig. A).We verified the direction of separation by initially holding a mixture in an optical lattice and then applying a constant magnetic field gradient. By observing the oscillation of the atomic cloud in the state around a new equilibrium under the influence of the lattice and gradient, we see that the vertical oscillations follow a simple harmonic motion around the trap center, as shown in Fig. B."
+            ],
+            "ai": [
+                "To successfully execute the Stern-Gerlach separation, a crucial element is the precise control of the magnetic field gradient. This is achieved through configuring an anti-Helmholtz coil setup by altering the current direction in one of the Feshbach coils. This modification is facilitated using a water-cooled H-bridge circuit. With this setup, we can achieve magnetic field gradients reaching as high as . The states selected for the separation process are and , chosen specifically because the state boasts a robust magnetic moment even at nearly zero field, and its sign is inversely related to the magnetic moment of . Consequently, in the presence of a magnetic field gradient, both components will undergo effective separation. To augment the differentiation in magnetic moments between the two states, a slight magnetic offset field of around 5 G is maintained during the separation process (refer to Fig. A). We initially validated the direction of separation by holding a mixture within an optical lattice and subsequently applying a constant magnetic field gradient. Upon conducting this procedure, the atomic cloud in the state is observed to oscillate around a new equilibrium position, influenced by both the lattice and the gradient. This oscillation follows a straightforward harmonic motion centered at the trap core, as depicted in Fig. B."
+            ]
+        },
+        {
+            "section": "I.2 Bilayer implementation and readout",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "Independent of the atomic states used for the Hubbard physics, we always map a pair of flavors for imaging on a mixture. To obtain this mixture that is suitable for the Stern-Gerlach separation, we ramp the lattice to and apply a RF sweep centered at spanned by . This transfer has an efficiency greater than 99%. Next, we ramp up the lattice depth to and turn on the magnetic field gradient of approximately . This magnetic field gradient is chosen to provide a convenient steady-state splitting of the two spin components in the vertical direction in the harmonic confinement of the optical lattice at . Two light sheets are simultaneously turned on and stay apart from each other, capturing atoms occupying in states and , respectively. We then move both light sheets further apart to and perform fluorescence imaging as described in ref. [48]."
+            ],
+            "ai": [
+                "Regardless of which atomic states are utilized for Hubbard model explorations, we consistently map a pair of flavors for imaging purposes on a concoction. To create this concoction, which is advantageous for the Stern-Gerlach separation method, we incrementally increase the lattice’s intensity and conduct a radio frequency sweep centered at the span defined by the designated frequencies. This process achieves a transfer efficiency exceeding 99%. Subsequently, we increase the lattice depth further and introduce a magnetic field gradient measuring approximately . This gradient has been deliberately selected to ensure a manageable yet definite separation of the two spin components in the vertical axis during harmonic trapping in the optical lattice, applied at . At this point, two light sheets are activated simultaneously, maintaining a firm distance from each other. They effectively capture atoms residing in the states and . Following this step, both light sheets are moved to a more significant separation distance and fluorescence imaging is executed as outlined in reference [48]."
+            ]
+        },
+        {
+            "section": "I.2 Bilayer implementation and readout",
+            "paragraph": 4,
+            "multilinear": 0,
+            "human": [
+                "In Fig. A, we show flavor-resolved fluorescence images of atoms in a two-component system that show an antiferromagnetic patch as expected for a square lattice in a repulsive regime. We suppress the background noise from the other layer by increasing the exposure time to and the resulting count histogram for the atom signal per lattice site shows well-separated peaks between empty and occupied sites (Fig. B). The center position of both flavor-resolved pictures needs to be recovered by an overlapping procedure. For example, the accuracy of overlapping using the center of mass has an error of a few sites, typically less than two lattice sites. To overlap more precisely, we apply small shifts within the error margin of the center-of-mass overlapping procedure. We then select the shift vector that results in an extremal doublon number, distinct from the noise associated with other shift vectors, similar to the approach in ref. [41]. We only use pictures in the evaluation where this procedure provides a unique result."
+            ],
+            "ai": [
+                "In Figure A, we present fluorescence images that distinguish between different atomic flavors within a two-component system, revealing an antiferromagnetic region consistent with a square lattice under a repulsive regime. To minimize background interference from other layers, we prolong the exposure time. This adjustment allows the resultant count histogram, which measures the atom signals per site on the lattice, to exhibit distinctly separated peaks indicative of both empty and occupied sites, as illustrated in Figure B. The center of each flavor-resolved image requires realignment, achieved through a method involving image overlap. For example, when employing center-of-mass techniques, the overlap precision typically harbors a margin of error spanning a few lattice sites-generally not exceeding two. To achieve greater alignment fidelity, we introduce minor positional adjustments within this error threshold. We identify the optimal shift vector by assessing which adjustment delivers the most pronounced doublon count, effectively differentiating it from noise caused by alternate shift vectors, akin to the methodology described in reference [41]. For our analysis, we include only those images wherein this process yields a singularly definitive outcome."
+            ]
+        },
+        {
+            "section": "I.3 Imaging fidelity",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "We measure the splitting fidelity by preparing a two-component Mott insulator with a maximum probability of singly occupied sites in a radial bin of 93.6(3)% and compare it to a flavor-resolved image with a filling of 91.1(4)% (Fig. ). The reduction in density of singly occupied sites indicates losses during the transport process."
+            ],
+            "ai": [
+                "To assess the fidelity of the splitting process, we analyze a two-component Mott insulator, achieving an impressive probability of singly occupied sites at 93.63% within a specified radial bin. This figure is then contrasted with a flavor-resolved image, which exhibits a filling rate of 91.14% (as depicted in Fig. ). The observed decrease in the density of singly occupied sites reveals some losses occurring throughout the transport mechanism."
+            ]
+        },
+        {
+            "section": "I.3 Imaging fidelity",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "Imaging fidelity without and with splitting are , by taking a series of images similar to previous work [48]. The imaging fidelity is slightly lower than in our previous work because we increased the exposure time to compensate for the background noise from the defocused layer."
+            ],
+            "ai": [
+                "The quality of imaging, both with and without the splitting technique, is assessed by acquiring a series of images akin to those in earlier studies, as referenced in [48]. However, it should be noted that the imaging fidelity is marginally reduced compared to our prior research. This decline can be attributed to the decision to extend the exposure time deliberately. The adjustment was necessary to counterbalance the background noise introduced by the defocused layer, which was not as prominent in earlier experiments."
+            ]
+        },
+        {
+            "section": "II.1 Tunneling calibration",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "We prepare non-interacting Fermi gases of a mixture in a square lattice and perform amplitude modulation for with an amplitude modulation of 5% for varying modulation frequencies. We observed atom losses near the transition of the s-band to the d-band (Fig. ). This data allows us to extract lattice depth for a certain lattice beam power in analogy to previous work [19]."
+            ],
+            "ai": [
+                "In this study, we set up non-interacting Fermi gases consisting of a mixture within a square lattice framework. We then engage in amplitude modulation, applying a modulation amplitude of 5% across a range of modulation frequencies. During the experiment, we noted significant atom losses occurring close to the transitional point from the s-band to the d-band, as illustrated in Fig. Such observations enable us to determine the lattice depth corresponding to a specific lattice beam power, drawing parallels to methodologies utilized in earlier research [19]."
+            ]
+        },
+        {
+            "section": "II.2 Confinement calibration",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To determine our radial confinement in the lattice we fit the density profile of a non-interacting Fermi gas. In this non-interacting system, we lose the interaction as a fit parameter and can use the confinement as a free parameter instead. In the calculation, we fill up the Fermi-Dirac distribution with the energy calculated from the tight-binding model and take into account a local density variation due to the confinement, . For the square lattice, the energy dispersion is given by where t is the tunneling strength, k i is the lattice momentum defined in the first Brillouin zone, . a is the lattice spacing."
+            ],
+            "ai": [
+                "To ascertain the radial confinement within our lattice, we employ a fitting procedure on the density profile of a Fermi gas devoid of interactions. In such a system where interactions are absent, the interaction ceases to be a fitting parameter, thereby allowing us to treat the confinement itself as a variable that can be freely adjusted. During the calculation, we populate the Fermi-Dirac distribution using the energy derived from the tight-binding model, concurrently considering a local variation in density prompted by the confinement. In a square lattice, the relationship of energy dispersion is characterized by certain parameters, where t represents the tunneling strength, while k_i denotes the lattice momentum as defined within the primary Brillouin zone. Additionally, a signifies the lattice spacing."
+            ]
+        },
+        {
+            "section": "II.2 Confinement calibration",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "The density profile of a non-interacting gas in the square lattice can be calculated by summing up all allowed momenta"
+            ],
+            "ai": [
+                "To determine the density distribution of a non-interacting gas situated within a square lattice, one can compute this by aggregating all the permissible momentum states."
+            ]
+        },
+        {
+            "section": "II.2 Confinement calibration",
+            "paragraph": 3,
+            "multilinear": 0,
+            "human": [
+                "We obtain a non-interacting Fermi gas similar to the Mott insulator sequence using a mixture. In addition, we ramp up the Feshbach field to the non-interacting point at after evaporation in the accordion lattice with horizontal confinement provided by a Gaussian beam propagating upward, referred to as the bottom beam. Then the lattice depth is set to . The azimuthal average of the cloud is shown in Fig. ."
+            ],
+            "ai": [
+                "To create a non-interacting Fermi gas that mirrors the Mott insulator sequence, we utilize a specific mixture. Furthermore, after completing the evaporation process within the accordion lattice, we adjust the Feshbach field to reach the non-interacting condition. This lattice is horizontally confined, which is achieved through a Gaussian beam moving in an upward direction, commonly known as the bottom beam. Subsequently, we establish the lattice depth as . The azimuthally averaged depiction of the cloud is illustrated in Fig. ."
+            ]
+        },
+        {
+            "section": "II.3 Interaction calibration",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To obtain interactions between flavor pairs, we prepare a band insulator at a target field using a lattice depth of . We transfer atoms from state to using an RF-pulse with a duration. By scanning the RF frequency, the atoms in singles and doublons are transferred to at different frequencies (Fig. ). The separation of the two peaks allows us to determine the interaction of the pair. The interactions of the remaining pairs are inferred from the field-dependent scattering lengths reported in ref. [49]."
+            ],
+            "ai": [
+                "To explore interactions among pairs of flavors, we initiate by creating a band insulator under a specific target field, employing a designated lattice depth. We then proceed to transition atoms from one quantum state to another using a radiofrequency pulse of specified duration. By varying the RF frequency, we are able to transfer atoms within single particles and doublons to new states at differing frequencies, as illustrated in Fig. (Fig. ). This divergence in the two resulting peaks enables us to accurately determine the interaction characteristics of the pair in question. For all other pairs, their interaction details are deduced based on the field-dependent scattering lengths that have been previously documented in reference [49]."
+            ]
+        },
+        {
+            "section": "II.4 Field-dependence of three-flavor Fermi gas loss rates",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "The magnetic-field-dependent stability of three-flavor Fermi gases is investigated by holding the gases in the accordion lattice confined horizontally by the bottom beam at the end of the final evaporation for varying duration. The state is observed through fluorescence imaging in the lattice. To determine the lifetime, we fit an exponential decay to the measurements and obtain the lifetime as a function of magnetic field, as depicted in Fig. ."
+            ],
+            "ai": [
+                "The stability of three-flavor Fermi gases, which depends on magnetic fields, is carefully examined by containing the gases within an accordion lattice. These gases are confined horizontally using the bottom beam, which is situated at the end of the final evaporation. The duration for which they are held is varied. To visualize the state of these gases, fluorescence imaging is employed within the lattice. In order to derive the lifetime, we apply an exponential decay model to our recorded measurements. This analysis yields the lifetime as it varies with the magnetic field, as illustrated in Fig. ."
+            ]
+        },
+        {
+            "section": "HIGH-TEMPERATURE SERIES EXPANSION",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "In the regime where interactions greatly exceed tunneling ( ), the singles occupation, n s , can be calculated by the grand canonical ensemble, given by where Z is the partition function: and Here and k B is the Boltzmann constant. The function is the modulo operation that projects the total density to 0 or 1. The physical reason are light-assisted collisions, causing the loss of doubly occupied sites during imaging."
+            ],
+            "ai": [
+                "In the scenario where interaction effects significantly surpass the impact of tunneling, denoted as ( U gg J ), the occupation number for single particles, n_s, can be determined using the grand canonical ensemble framework. This calculation involves the partition function Z, which is defined by the equation:[ Z = sum_states e^{-β Energy} ]Here, (β = 1/(k_B T)) and k_B represents the Boltzmann constant. Additionally, the function applied here is a modulo operation that confines the total density to values of either 0 or 1. The underlying physical mechanism responsible for this behavior is the occurrence of light-assisted collisions, which lead to the elimination of sites with dual occupancy during the imaging process."
+            ]
+        },
+        {
+            "section": "HIGH-TEMPERATURE SERIES EXPANSION",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "Single-component densities of three-component mixture, n i , are simultaneously calculated by and mean squared of single-component densities are given by The variance of the total density is calculated by σ 2 Doublon densities of the three pairs are calculated by The triplon density is calculated by According to Eq. , we define the doublon density as the number pairs of particles of a certain kind that are contained in a lattice site. This definition includes lattice sites where there are exactly two particles (doublons), as well as lattice sites with three particles (triplons). Consequently, sites with three particles are counted as having a doublon in this density measure, which means that the density includes multiple counts of such sites. We note that only the dataset shown in Fig. 4 of the main text shows a significant number of triplons."
+            ],
+            "ai": [
+                "The individual component densities of a system comprised of a trio of different elements, denoted as n_i, are determined in conjunction with the mean square values of these singular densities. The variability in the overall density is represented by σ^2. For calculating pairwise particle densities, termed doublon densities, within this triadic mixture, and assessing the density of triads of particles, or triplon density, one employs the formula provided in Equation .According to our defined principles, the doublon density refers to the count of particle pairs of an identical type occupying a single lattice site. This definition is inclusive of lattice sites that are home to exactly two particles, referred to as doublons, and those with a trio of particles, known as triplons. Hence, lattice sites that host three particles contribute to the doublon density count as well, leading to multiple counts for these sites in this specific density measurement framework. Notably, it is only the dataset detailed in Figure 4 of the primary document that demonstrates a noteworthy presence of triplons."
+            ]
+        },
+        {
+            "section": "NUMERICAL LINKED-CLUSTER EXPANSIONS",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "A seventh-order site-expansion numerical linked-cluster expansion (NLCE) is used to compute the observables in the main text.With the NLCE algorithm [51, 52], a thermodynamic property of the lattice L is written as a weighted sum of the property value for all its connected clusters, where is the number of ways cluster c can be embedded in L up to translation invariance and topological equivalence, and the property weight of cluster c is defined recursively as where the sum is over all subclusters s of c . is computed by exact diagonalization (ED).The site-expansion scheme [52] groups terms with an equal number of sites in a cluster (the order of the expansion) in the sum of Eq. ().When the correlations are short-ranged, the sum can be truncated to a reasonably low order with errors exponentially small in the truncation order."
+            ],
+            "ai": [
+                "A numerical linked-cluster expansion NLCE with a site-expansion scheme up to the seventh order is employed to calculate the observables presented in the main text. Utilizing the NLCE algorithm, as detailed in references [51, 52], the thermodynamic properties of a lattice, denoted as L, are expressed as a sum, weighted by the contributions of all its connected clusters. Here, signifies the number of distinct embeddings of cluster c in L, considering translation invariance and topological equivalence. The weight assigned to cluster c is determined through a recursive process, in which the sum is calculated over all subclusters s belonging to c. This computation relies on exact diagonalization ED methods.The site-expansion framework outlined in [52] organizes terms by grouping together those with the same number of sites within a cluster, corresponding to the order of the expansion in the equation. In scenarios where correlations are limited to short ranges, the series can be truncated at a relatively low order, leading to errors that decrease exponentially based on the truncation order."
+            ]
+        },
+        {
+            "section": "NUMERICAL LINKED-CLUSTER EXPANSIONS",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "The only error the NLCE suffers is the truncation error, which is controlled by the truncation order and is self-diagnosed by comparing consecutive orders.Results are significantly more accurate than bare ED of equivalent system sizes.See Appendix B of Ref. [54] for a thorough comparison in the closely related systems of SU( N ) Fermi-Hubbard models. We use the symmetry (i.e. conservation of each spin species), as in the SU(3) calculations, but the absence of SU(3) symmetry in the present system prevents the use of permutation symmetry, requiring diagonalization of up to six times as many clusters. In Table we summarize the fit parameters used in Figs. 3D and 4 of the main text."
+            ],
+            "ai": [
+                "The NLCE, or Numerical Linked Cluster Expansion, faces a single issue: the truncation error. This particular error can be managed by adjusting the truncation order, and it can also be self-assessed by evaluating the results across successive orders. The accuracy achieved with this method is notably superior compared to bare Exact Diagonalization of systems of equivalent sizes. For an in-depth comparison in similar models, particularly those involving SUN Fermi-Hubbard systems, refer to Appendix B in Reference [54]. In our approach, we exploit symmetry, specifically the conservation of individual spin species, similar to what is done in SU3 calculations. However, the lack of SU3 symmetry in the current system excludes the possibility of utilizing permutation symmetry. As a consequence, this requires the diagonalization of a significantly larger number of clusters-up to six times more than would otherwise be necessary. Within the Table, we provide a summary of the fit parameters that were employed in Figures 3D and 4 of the main body of the text."
+            ]
+        },
+        {
+            "section": "HOPPING CORRECTION",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "For Figs. 2B, 3B, 3D, and 4 of the main text, we attribute the deviation from the theory calculations predominantly to hopping during the imaging stage in the experiment.We calibrated independently our imaging fidelity of the flavor-resolved imaging to (Sec. ). The infidelity is mostly caused by hopping between different vertical tubes of the lattices during the splitting, and to a much smaller extent by losses. We find for the hopping in this flavor-resolved imaging process .To take the effect of this hopping during the imaging process into account to the first order in the numerical data, we use a Monte Carlo technique as follows: We generate 5000 samples of atom distributions which are generated with spatially homogeneous probabilities for all eight possible on-site occupations (empty, , , , , , , ). We then iterate over all atoms and introduce a hop event with a probability which is distributed equally to the four nearest-neighbor sites (each with probability). The pairing observables are thereafter calculated by averaging from the resulting 5000 samples with hopping using the formulas discussed in Sec. . We observe that the number of samples is sufficient to reproduce the data without hopping within the size of the symbols in the figures of the main text. We note that this hopping correction is only a first-order approximation and does not take into account many other possibly relevant effects, including nearest-neighbor correlations, interactions, and density-dependent hopping."
+            ],
+            "ai": [
+                "For Figures 2B, 3B, 3D, and 4 in the main body of the text, the primary cause of discrepancies between theoretical calculations and experimental observations is predominantly attributed to atom hopping that takes place during the imaging phase of the experiment. Our calibration of the imaging precision, specifically for the flavor-resolved imaging, was conducted independently, as detailed in Section . The primary source of infidelity is attributed to atom hopping between distinct vertical tubes within the lattice during their splitting process, with atom losses playing a much less significant role. We have quantified the hopping activity in this flavor-resolved imaging method as . To include the influence of hopping during the imaging process in our first-order numerical analysis, we employ a Monte Carlo approach in the following manner: we start by generating 5,000 samples of atomic distributions, assuming spatially uniform probabilities across all eight potential on-site occupations (such as empty, , , , , , , ). Subsequently, each atom undergoes a simulated hopping event, with each of the four nearest-neighbor sites having an equal likelihood of being the hopping destination. After applying these probability-driven hops, we compute the pairing observables by taking an average over the 5,000 resulting samples, incorporating the hopping effects based on the methodology introduced in Section . The number of generated samples proves adequate for capturing the behavior of the system as depicted in the corresponding figures of the main text, within the margin of the symbols’ sizes, even without considering hopping. It is worth mentioning that this hopping adjustment is purely a first-order approximation. This approach does not consider a range of potentially significant factors, such as nearest-neighbor correlations, particle interactions, and hopping that might depend on the local density."
+            ]
+        },
+        {
+            "section": "VI.1 Total three-flavor density variance",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "We evaluate the total density variance, σ 2 , from the experiment by expanding By defining the variance can be written in terms of observable quantities"
+            ],
+            "ai": [
+                "To assess the total density variance, denoted as σ2, derived from our experimental setup, we undertake an expansion process. By introducing a definition, this variance can be articulated using quantities that can be directly observed and measured."
+            ]
+        },
+        {
+            "section": "VI.1 Total three-flavor density variance",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "We note that all terms in Eq. are accessible through our flavor-resolved imaging."
+            ],
+            "ai": [
+                "It is important to mention that every term found within the equation can be accessed via our flavor-specific imaging techniques."
+            ]
+        },
+        {
+            "section": "VI.2 Compressibility",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "By applying local density approximation, the chemical potential can be written in terms of radial dependence. The compressibility, κ , is given by where n is the total density extracted from individual measurements of the threeflavors and ω is the lattice confinement obtained from the measurement in Sec. [55]."
+            ],
+            "ai": [
+                "Utilizing the local density approximation, one can express the chemical potential as a function dependent on the radial position. Specifically, the compressibility, denoted as κ, is determined by the overarching density, n, which is derived from separate assessments of each of the three flavors. Moreover, ω represents the lattice confinement, which is ascertained from the measurements detailed in Section [55]."
+            ]
+        },
+        {
+            "section": "VI.2 Compressibility",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "Similarly, we calculate the compressibility κ α of the flavor α using"
+            ],
+            "ai": [
+                "Likewise, we determine the compressibility κ α for the flavor α by employing the following calculation method:"
+            ]
+        },
+        {
+            "section": "VI.3 Experimental triplon density",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To access the triplon density , we expand the singles density in terms of flavor densities, doublon densities, and triplon density as follows: The singles density, n s , is naturally measured during fluorescence imaging (fluorescence imaging leads to parity projection) without any additional splitting procedures, whereas the flavor and doublon densities can be obtained through the splitting procedure. We extract the triplon density by solving Eq. for n t and estimate the error bars of n t by applying error propagation."
+            ],
+            "ai": [
+                "To determine the triplon density, we proceed by expressing the singles density through an expansion that encompasses flavor densities, doublon densities, and triplon density. This approach works as follows: the singles density, denoted as n_s, can be conveniently quantified during the process of fluorescence imaging. This technique results in a parity projection and does not require any further partitioning methods. In contrast, to acquire the flavor and doublon densities, one must utilize a splitting procedure. To isolate the triplon density, we apply the necessary manipulations and resolve the equation for n_t. We then assess the uncertainties associated with n_t by employing error propagation techniques to accurately project the error margins."
+            ]
+        },
+        {
+            "section": "VI.4 Calculation of on-site pair correlations at unit filling for fixed number per flavor",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To obtain the theory curve in Fig. 5 of the main text, we need to find the chemical potentials at the trap center, μ , for fixed numbers of atoms per flavor, N α . First, we generate flavor densities as functions of μ , interactions, temperature, and trap radius using local density approximation in the atomic limit. The atom number for each flavor can be integrated from the density profiles. By imposing interactions and temperature as fixed parameters, we apply non-linear least squares fitting to extract μ . Since all parameters used in the HTSE are known, we calculate the on-site correlations and then select the values at unit filling."
+            ],
+            "ai": [
+                "To derive the theoretical curve depicted in Figure 5 of the primary text, we must determine the chemical potentials at the center of the trap, denoted as μ, while keeping the atom counts per flavor, N_alpha, constant. Initially, we construct flavor density profiles based on μ, interaction strengths, temperature, and the radius within the trap through the use of the local density approximation in the atomic limit. We then integrate these density profiles to ascertain the atom count for each flavor. By setting the interactions and temperature as constants, we employ non-linear least squares fitting techniques to determine μ. Given that all parameters for the High-Temperature Series Expansion HTSE calculations are known, we compute the on-site correlations and subsequently select the appropriate values at unit filling."
+            ]
+        },
+        {
+            "section": "VI.5 Error estimates for densities and correlations",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To estimate the statistical uncertainty of densities and correlations, we use a bootstrap analysis. We start with our original datasets and create n b bootstrap samples by randomly selecting N b subdatasets with replacements. For each of these samples, we calculate the mean of the densities and correlations. This process is repeated several times until we reach convergence. After these repetitions, we have a collection of means from the bootstrap samples. We then calculate the standard deviation of these means which gives us an estimate of the standard error, and we use them as error bars for our measurements [56]. The number of bootstrap samples, n b , and bootstrap sample size, N b , are summarized in Table ."
+            ],
+            "ai": [
+                "In order to determine the statistical uncertainty associated with densities and correlations, we employ a method known as bootstrap analysis. Our approach begins with the original datasets, from which we generate n b bootstrap samples. This is accomplished by randomly choosing N b smaller datasets, with replacement, from the original data. For each of these bootstrap samples, we compute the average values of densities and correlations. This routine is iterated multiple times to ensure the outcomes reach convergence. Following these repetitions, we compile a set of average values derived from the bootstrap samples. By calculating the standard deviation of these average values, we obtain an estimate of the standard error, which we then utilize as error bars to represent our measurement uncertainties [56]. Details about the number of bootstrap samples, n b, and the size of each bootstrap sample, N b, can be found in Table ."
+            ]
+        },
+        {
+            "section": "Thermometry",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "To determine the temperature, T , of our three-flavor Fermi-Hubbard systems, we apply two approaches: we fit the spatial variation of the density of each flavor over the system size and we apply the fluctuation-dissipation theorem. Both methods result in consistent temperature within error bars."
+            ],
+            "ai": [
+                "In our quest to ascertain the temperature, T, of our three-flavor Fermi-Hubbard systems, we employ a dual-method strategy. First, we analyze the spatial distribution of the density corresponding to each flavor across the entire system. Second, we utilize the fluctuation-dissipation theorem. Remarkably, both techniques yield temperature measurements that align closely, with discrepancies falling within the range of expected errors."
+            ]
+        },
+        {
+            "section": "VII.1 Thermometry using radial dependence of flavor density",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "We fit the radial density profile of all three flavors simultaneously to either HTSE or NLCE by minimizing the χ 2 defined by Here, the index i represents the flavor. We make use of the symmetry of the lattice and use the temperature, T , and the chemical potentials for each flavor at the trap center, μ , as fit parameters."
+            ],
+            "ai": [
+                "We conduct a simultaneous fitting of the radial density profiles for all three distinct flavors to either the High-Temperature Series Expansion HTSE or the Numerical Linked-Cluster Expansion NLCE. This fitting procedure involves minimizing the chi-squared statistic, denoted as χ2. Within this context, the index i signifies the specific flavor under consideration. Taking advantage of the lattice’s intrinsic symmetry, we set the temperature T and the chemical potentials for each flavor as they exist at the trap’s center, denoted as μ, as the adjustable parameters for our fitting process."
+            ]
+        },
+        {
+            "section": "VII.1 Thermometry using radial dependence of flavor density",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "We employ the local density approximation to determine the radial dependence of chemical potential from the trap center, where m is the atom mass and ω is the harmonic lattice confinement which is measured using a non-interacting Fermi gas (Sec. )."
+            ],
+            "ai": [
+                "To ascertain how the chemical potential varies radially from the center of the trap, we utilize the local density approximation. In this context, m represents the mass of the atom, while ω denotes the harmonic lattice confinement. This confinement value is determined experimentally using a Fermi gas that does not exhibit interactions (refer to Section for further details)."
+            ]
+        },
+        {
+            "section": "VII.2 Thermometry using density fluctuation-dissipation theorem",
+            "paragraph": 1,
+            "multilinear": 0,
+            "human": [
+                "The density fluctuations can be used for thermometry which has been successfully demonstrated in a two-component mixture [44]. Here, we apply a similar approach to determine the temperature of our three-flavor mixture. The density fluctuation-dissipation theorem is given by"
+            ],
+            "ai": [
+                "Fluctuations in density can serve as a means for measuring temperature, and this method has been effectively showcased in a binary mixture, as detailed in reference [44]. In this context, we adapt a comparable technique to ascertain the temperature of our trio-flavored mixture. The theorem regarding fluctuation-dissipation in relation to density is articulated as follows:"
+            ]
+        },
+        {
+            "section": "VII.2 Thermometry using density fluctuation-dissipation theorem",
+            "paragraph": 2,
+            "multilinear": 0,
+            "human": [
+                "where T is the temperature. T can be obtained by performing a linear regression to and (Fig. ). We apply this technique to independently confirm our previous temperature measurement."
+            ],
+            "ai": [
+                "Temperature, denoted as T, is determined through a method involving linear regression applied to two variables, as illustrated in Figure . By utilizing this approach, we aim to verify and corroborate our earlier temperature readings independently."
+            ]
+        }
+    ]
+}

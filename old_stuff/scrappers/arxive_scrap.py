@@ -154,13 +154,13 @@ def scrape_data(categories, max_results_per_category):
                 print(f"No content retrieved from URL: {url}")
     return all_data
 
-categories = {'cs':1, 'econ':1,'q-bio':1, 'cs.AI':1, 'cs.CL':1}
-
+# categories = {'cs':1, 'econ':1,'q-bio':1, 'cs.AI':1, 'cs.CL':1}
+categories = {'cs':1,'econ':1}
 data = scrape_data(categories, categories)
 print('--- ARXIV Scraping Done ---')
 
 print('>> Saving data <<')
-with open('../data/demo.json', 'w', encoding='utf-8') as f:
+with open('../data/evaluation.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=4, ensure_ascii=False)
 print('>> Data Saved Successfully <<')
 ##-----

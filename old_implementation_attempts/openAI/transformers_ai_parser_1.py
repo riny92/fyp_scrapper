@@ -46,7 +46,6 @@ def fix_word_splits(text):
 
 # try and convert latex math expressions to unicode text
 def convert_latex_math(text):
-    """Convert LaTeX math expressions to Unicode-friendly text."""
     def replace_inline(match):
         latex_expr = match.group(1)
         try:

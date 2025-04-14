@@ -1,0 +1,32 @@
+{
+    "dataset": "last_5_subset.json",
+    "total_paragraphs_evaluated": 278,
+    "evaluation_summary": {
+        "Human": {
+            "TP": 79,
+            "FP": 91,
+            "FN": 60,
+            "precision": 0.46,
+            "recall": 0.57,
+            "f1_score": 0.51
+        },
+        "AI": {
+            "TP": 48,
+            "FP": 60,
+            "FN": 91,
+            "precision": 0.44,
+            "recall": 0.35,
+            "f1_score": 0.39
+        }
+    },
+    "confusion_matrix": {
+        "Predicted_Human": {
+            "Actual_Human": 79,
+            "Actual_AI": 91
+        },
+        "Predicted_AI": {
+            "Actual_Human": 60,
+            "Actual_AI": 48
+        }
+    }
+}

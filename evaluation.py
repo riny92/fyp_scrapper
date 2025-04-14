@@ -1,30 +1,27 @@
-# INITIAL IMPLEMENTATION WITH MATRIX + THRESHHOLD + TOLERANCE FACTOR
 import os
 import json
 import numpy as np
 from Levenshtein import distance as levenshtein_distance
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 def load_json(filepath):
     with open(filepath, "r", encoding="utf-8") as file:
         return json.load(file)
 
-
 def save_json(filepath, data):
     with open(filepath, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
-
 def normalized_levenshtein(human, ai):
     return levenshtein_distance(human, ai) / max(len(human), len(ai))
-
 
 def calculate_cosine_similarity(human, ai):
     vectorizer = TfidfVectorizer().fit_transform([human, ai])
     return cosine_similarity(vectorizer[0], vectorizer[1])[0][0]
-
 
 def evaluate_paper(article_id, paragraphs, tolerance_factor=0.1):
     results = {
@@ -40,49 +37,37 @@ def evaluate_paper(article_id, paragraphs, tolerance_factor=0.1):
     if num_paragraphs == 0:
         return results
 
-    ld_matrix = np.zeros((num_paragraphs, num_paragraphs))
-    cs_matrix = np.zeros((num_paragraphs, num_paragraphs))
+    ld_matrix = np.full((num_paragraphs, num_paragraphs), np.nan)
+    cs_matrix = np.full((num_paragraphs, num_paragraphs), np.nan)
 
     for i in range(num_paragraphs):
         for j in range(num_paragraphs):
-            human_text = valid_paragraphs[i]["human"][0]
-            ai_text = valid_paragraphs[j]["ai"][0]
-
-            ld_matrix[i][j] = normalized_levenshtein(human_text, ai_text)
-            cs_matrix[i][j] = calculate_cosine_similarity(human_text, ai_text)
+            try:
+                human_text = valid_paragraphs[i]["human"][0]
+                ai_text = valid_paragraphs[j]["ai"][0]
+                ld_matrix[i][j] = normalized_levenshtein(human_text, ai_text)
+                cs_matrix[i][j] = calculate_cosine_similarity(human_text, ai_text)
+            except Exception as e:
+                continue  #skip problematic entries
 
     for i in range(num_paragraphs):
         ld_diag = ld_matrix[i][i]
         cs_diag = cs_matrix[i][i]
 
-        ld_off_avg = np.mean(np.delete(ld_matrix[i, :], i))
-        cs_off_avg = np.mean(np.delete(cs_matrix[i, :], i))
-
-        ld_threshold = ld_off_avg - (ld_off_avg * tolerance_factor)
-        cs_threshold = cs_off_avg + (cs_off_avg * tolerance_factor)
-
-        ld_verdict = "Good LD" if ld_diag >= ld_threshold else "Low LD"
-        cs_verdict = "Good CS" if cs_diag <= cs_threshold else "High CS"
-
-        verdict = "Good AI-generated text" if ld_verdict == "Good LD" and cs_verdict == "Good CS" \
-            else f"Issues: {ld_verdict}, {cs_verdict}"
+        cs_off_vals = np.delete(cs_matrix[i, :], i)
+        cs_off_avg = np.nanmean(cs_off_vals)
 
         topic_results = {
             "section": valid_paragraphs[i].get("section", ""),
             "paragraph": valid_paragraphs[i].get("paragraph", ""),
-            "LD_diag": ld_diag,
-            "LD_off_avg": ld_off_avg,
-            "LD_threshold": ld_threshold,
-            "CS_diag": cs_diag,
-            "CS_off_avg": cs_off_avg,
-            "CS_threshold": cs_threshold,
-            "Verdict": verdict
+            "LD_diag": float(ld_diag) if not np.isnan(ld_diag) else None,
+            "CS_diag": float(cs_diag) if not np.isnan(cs_diag) else None,
+            "CS_off_avg": float(cs_off_avg) if not np.isnan(cs_off_avg) else None
         }
 
         results["evaluations"].append(topic_results)
 
     return results
-
 
 def process_dataset(input_filepath, output_filepath, tolerance_factor=0.1):
     print(f"Loading {input_filepath} ...")
@@ -94,27 +79,35 @@ def process_dataset(input_filepath, output_filepath, tolerance_factor=0.1):
     print(f"Saving evaluation report to {output_filepath} ...")
     save_json(output_filepath, evaluation_results)
     print("Evaluation complete!")
+    summarize_results(evaluation_results)
 
-    summarize_failures(evaluation_results)
-
-
-def summarize_failures(evaluation_results):
-    failed_topics = []
-    total_count = 0
+def summarize_results(evaluation_results):
+    total = 0
+    cs_diag_better_count = 0
+    ld_values = []
 
     for article in evaluation_results:
         for topic in article["evaluations"]:
-            total_count += 1
-            if "Low LD" in topic["Verdict"] or "High CS" in topic["Verdict"]:
-                failed_topics.append(topic)
+            cs_diag = topic["CS_diag"]
+            cs_off_avg = topic["CS_off_avg"]
+            ld_diag = topic["LD_diag"]
 
-    total_failed = len(failed_topics)
-    passed_count = total_count - total_failed
+            if cs_diag is not None and cs_off_avg is not None:
+                total += 1
+                if cs_diag > cs_off_avg:
+                    cs_diag_better_count += 1
+            if ld_diag is not None and ld_diag > 0.1:
+                ld_values.append(ld_diag)
 
-    print("\nEvaluation Failure Breakdown: ")
-    print(f"Topics failing LD (Low Structural Difference): {sum(1 for topic in failed_topics if 'Low LD' in topic['Verdict'])} / {total_count}")
-    print(f"Topics failing CS (High Semantic Similarity): {sum(1 for topic in failed_topics if 'High CS' in topic['Verdict'])} / {total_count}")
-    print(f"Topics that passed: {passed_count} / {total_count}")
+    if ld_values:
+        ld_min = min(ld_values)
+        ld_max = max(ld_values)
+    else:
+        ld_min = ld_max = 0
+
+    print("\n--- Evaluation Summary ---")
+    print(f"Paragraphs where CS_diag > CS_off_avg: {cs_diag_better_count} / {total}")
+    print(f"LD_diag range: [{round(ld_min, 4)}, {round(ld_max, 4)}]")
 
 DATASET_FOLDER = "."
 
@@ -161,4 +154,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

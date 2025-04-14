@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 client = OpenAI()
 
 DATASET_FOLDER = "."
@@ -42,7 +41,6 @@ def query_gpt(text):
                 {"role": "system", "content": "You are a text classification assistant."},
                 {"role": "user", "content": prompt}
             ],
-            
             temperature=0
         )
         return response.choices[0].message.content.strip().upper()
@@ -50,14 +48,20 @@ def query_gpt(text):
         print("Error during GPT call:", e)
         return "ERROR"
 
+def calculate_metrics(tp, fp, fn):
+    precision = tp / (tp + fp) if (tp + fp) else 0
+    recall = tp / (tp + fn) if (tp + fn) else 0
+    f1 = (2 * precision * recall) / (precision + recall) if (precision + recall) else 0
+    return precision, recall, f1
+
 def run_gpt_evaluation(dataset_path):
     with open(dataset_path, "r", encoding="utf-8") as file:
         data = json.load(file)
 
-    correct_human = 0
-    correct_ai = 0
-    total_human = 0
-    total_ai = 0
+    counts = {
+        "TP_H": 0, "FP_H": 0, "FN_H": 0, "TN_H": 0,
+        "TP_A": 0, "FP_A": 0, "FN_A": 0, "TN_A": 0
+    }
 
     for paper_id, paragraphs in data.items():
         for para in paragraphs:
@@ -66,19 +70,71 @@ def run_gpt_evaluation(dataset_path):
             human_texts = para.get("human", [])
             ai_texts = para.get("ai", [])
             if human_texts:
-                total_human += 1
                 label = query_gpt(human_texts[0])
                 if label == "HUMAN":
-                    correct_human += 1
+                    counts["TP_H"] += 1
+                    counts["TN_A"] += 1
+                elif label == "AI":
+                    counts["FN_H"] += 1
+                    counts["FP_A"] += 1
             if ai_texts:
-                total_ai += 1
                 label = query_gpt(ai_texts[0])
                 if label == "AI":
-                    correct_ai += 1
+                    counts["TP_A"] += 1
+                    counts["TN_H"] += 1
+                elif label == "HUMAN":
+                    counts["FN_A"] += 1
+                    counts["FP_H"] += 1
 
     print("\n--- GPT Evaluation Summary ---")
-    print(f"Human paragraphs correctly identified: {correct_human} / {total_human}")
-    print(f"AI paragraphs correctly identified:    {correct_ai} / {total_ai}")
+    print(f"Human - TP: {counts['TP_H']}, FN: {counts['FN_H']}")
+    print(f"AI     - TP: {counts['TP_A']}, FN: {counts['FN_A']}")
+
+    ph, rh, f1h = calculate_metrics(counts["TP_H"], counts["FP_H"], counts["FN_H"])
+    pa, ra, f1a = calculate_metrics(counts["TP_A"], counts["FP_A"], counts["FN_A"])
+
+    print("\nMetrics for Human class:")
+    print(f"Precision: {ph:.2f}, Recall: {rh:.2f}, F1: {f1h:.2f}")
+    print("\nMetrics for AI class:")
+    print(f"Precision: {pa:.2f}, Recall: {ra:.2f}, F1: {f1a:.2f}")
+
+    json_name = dataset_path.replace(".json", "_gpt_eval.json")
+    json_report = {
+        "dataset": os.path.basename(dataset_path),
+        "total_paragraphs_evaluated": counts["TP_H"] + counts["FN_H"] + counts["TP_A"] + counts["FN_A"],
+        "evaluation_summary": {
+            "Human": {
+                "TP": counts["TP_H"],
+                "FP": counts["FP_H"],
+                "FN": counts["FN_H"],
+                "precision": round(ph, 2),
+                "recall": round(rh, 2),
+                "f1_score": round(f1h, 2)
+            },
+            "AI": {
+                "TP": counts["TP_A"],
+                "FP": counts["FP_A"],
+                "FN": counts["FN_A"],
+                "precision": round(pa, 2),
+                "recall": round(ra, 2),
+                "f1_score": round(f1a, 2)
+            }
+        },
+        "confusion_matrix": {
+            "Predicted_Human": {
+                "Actual_Human": counts["TP_H"],
+                "Actual_AI": counts["FP_H"]
+            },
+            "Predicted_AI": {
+                "Actual_Human": counts["FN_H"],
+                "Actual_AI": counts["TP_A"]
+            }
+        }
+    }
+
+    with open(json_name, "w", encoding="utf-8") as f:
+        json.dump(json_report, f, indent=4)
+    print(f"\nJSON report saved to: {json_name}")
 
 def main():
     dataset_path = list_datasets()

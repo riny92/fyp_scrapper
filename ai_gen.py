@@ -8,6 +8,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from data_cleaning import clean_text  
 import logging
+import random
 
 #load API key from .env
 load_dotenv()
@@ -108,6 +109,9 @@ def process_dataset(dataset, filename):
                 
                 #save progress 
                 save_dataset(filename, dataset)
+
+                sleep_time = random.uniform(3, 6)
+                time.sleep(sleep_time)
 
                 #update progress 
                 processed_paragraphs += 1

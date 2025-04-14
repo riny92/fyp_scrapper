@@ -11,6 +11,7 @@ import gpt_evaluation
 #asks user what they want to do
 def main_menu():
     while True:
+        print("\n===== MAKE SURE TO NOT PUBLISH .ENV ON GITHUB =====")
         print("\n===== AI-Powered Academic Dataset Toolkit =====")
         print("1. Scrape new papers")
         print("2. Read scraped papers from existing datasets.")
